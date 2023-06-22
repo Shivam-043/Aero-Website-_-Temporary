@@ -10,8 +10,8 @@ export const navLinks = [
     title: "Blogs",
   },
   {
-    id: "rcHover",
-    title: "RC HoverCraft",
+    id: "events",
+    title: "Events",
   },
   {
     id: "drone",

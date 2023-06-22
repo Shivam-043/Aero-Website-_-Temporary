@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter,Routes,Route  } from 'react-router-dom'
-import App from '../App'
-import styles from '../style'
-import Blogs from './Blogs'
-import Navbar from './Navbar'
+import App from './components/App'
+import styles from './style'
+import Blogs from './components/Blogs'
+import Navbar from './components/Navbar'
 
 
 
