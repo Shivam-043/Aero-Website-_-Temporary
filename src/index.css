@@ -22,11 +22,11 @@
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
     #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
+    #bedbf5 17.23%,
+    #9dcff0 42.04%,
+    #7da9eb 55.12%,
+    #5c93e6 71.54%,
+    #3379cf 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -137,4 +137,72 @@
 .white__gradient {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
+}
+
+.section-heading {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  font-size: 64px;
+  color: #10996d;
+  margin: 0 0 70px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.profile {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.profile:hover {
+  transform: translateY(25px);
+}
+
+.profile img {
+  max-width: 100%;
+  border-radius: 50%;
+  border: 5px solid #f7f7f7;
+  filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
+  cursor: pointer;
+}
+
+.profile:not(:first-child) img {
+  margin-left: -20px;
+}
+
+.profile .name {
+  position: absolute;
+  /* background-color: #10996d; */
+  color: #fff;
+  font-family: "Poppins", cursive;
+  padding: 15px 30px;
+  border-radius: 100px;
+  bottom: -80px; left: 50%;
+  white-space: nowrap;
+  transform: translate(-50%, -50px);
+  letter-spacing: 1px;
+  font-size: 20px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.profile .name::before {
+  content: "";
+  position: absolute;
+  width: 15px; height: 15px;
+  /* background-color: #10996d; */
+  top: 0; left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.profile img:hover + .name {
+  opacity: 1;
+  transform: translateX(-50%);
+  box-shadow: 0 10px 20px rgba(86, 86, 198, 0.3);
 }

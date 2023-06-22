@@ -1,23 +1,40 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star,nitCalicut ,rcPlane, hovercraft } from "../assets";
 
 export const navLinks = [
   {
-    id: "home",
+    id: "",
     title: "Home",
   },
   {
-    id: "features",
-    title: "Features",
+    id: "blogs",
+    title: "Blogs",
   },
   {
-    id: "product",
-    title: "Product",
+    id: "rcHover",
+    title: "RC HoverCraft",
   },
   {
-    id: "clients",
-    title: "Clients",
+    id: "drone",
+    title: "Drone",
   },
 ];
+
+export const types = [
+  {
+    id: "RC Plane",
+    initialName : "Thrilling airborne ",
+    lastName: "maneuvers unleashed",
+    logo: rcPlane,
+    content: "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. Fusce ipsum orci rhoncus aliporttitor integer plate placerat."
+  },
+  {
+    id: "RC Hover",
+    initialName : "Smooth glides",
+    lastName: "water adventures",
+    logo: hovercraft,
+    content: "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. Fusce ipsum orci rhoncus aliporttitor integer plate placerat."
+  },
+]
 
 export const features = [
   {
@@ -68,6 +85,46 @@ export const feedback = [
     title: "Founder & Leader",
     img: people03,
   },
+  {
+    id: "feedback-4",
+    content:
+      "It is usually people in the money business, finance, and international trade that are really rich.",
+    name: "Kenn Gallagher",
+    title: "Founder & Leader",
+    img: people03,
+  },
+  {
+    id: "feedback-5",
+    content:
+      "It is usually people in the money business, finance, and international trade that are really rich.",
+    name: "Kenn Gallagher",
+    title: "Founder & Leader",
+    img: people03,
+  },
+  {
+    id: "feedback-6",
+    content:
+      "It is usually people in the money business, finance, and international trade that are really rich.",
+    name: "Kenn Gallagher",
+    title: "Founder & Leader",
+    img: people03,
+  },
+  {
+    id: "feedback-7",
+    content:
+      "It is usually people in the money business, finance, and international trade that are really rich.",
+    name: "Kenn Gallagher",
+    title: "Founder & Leader",
+    img: people03,
+  },
+  {
+    id: "feedback-8",
+    content:
+      "It is usually people in the money business, finance, and international trade that are really rich.",
+    name: "Kenn Gallagher",
+    title: "Founder & Leader",
+    img: people03,
+  },
 ];
 
 export const stats = [
@@ -93,11 +150,11 @@ export const footerLinks = [
     title: "Useful Links",
     links: [
       {
-        name: "Content",
+        name: "RC Planes",
         link: "https://www.hoobank.com/content/",
       },
       {
-        name: "How it Works",
+        name: "RC HoverCraft",
         link: "https://www.hoobank.com/how-it-works/",
       },
       {
@@ -195,3 +252,27 @@ export const clients = [
     logo: dropbox,
   },
 ];
+
+export const achievement = [
+  {
+    logo: nitCalicut,
+    id: "NIT-Calicut-1"
+  },
+  {
+    logo: nitCalicut,
+    id: "NIT-Calicut-2"
+  },
+  {
+    logo: nitCalicut,
+    id: "NIT-Calicut-3"
+  },
+  {
+    logo: nitCalicut,
+    id: "NIT-Calicut-4"
+  },
+  {
+    logo: nitCalicut,
+    id: "NIT-Calicut-5"
+  },
+  
+]

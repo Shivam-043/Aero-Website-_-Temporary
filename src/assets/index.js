@@ -23,6 +23,11 @@ import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
+import nitCalicut from "./nit_calicut.png";
+import rcPlane from "./rcPlane.png";
+import drone from "./drone.png";
+import aeroLogo from "./aeroLogo.png";
+import hovercraft from "./hovercraft.png";
 
 export {
   airbnb,
@@ -50,4 +55,9 @@ export {
   people01,
   people02,
   people03,
+  nitCalicut,
+  rcPlane,
+  drone,
+  aeroLogo,
+  hovercraft
 };
