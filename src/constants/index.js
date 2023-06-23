@@ -17,7 +17,50 @@ export const navLinks = [
     id: "drone",
     title: "Drone",
   },
+  {
+    id: "techspardha",
+    title: "TechSpardha",
+  },
 ];
+
+export const events = [
+  {
+    id: "event-1",
+    title: "Drone BootCamp",
+    Date : " 20th - 26th April 2023",
+    content: "lorem ndjndjisdoisosnsnsdfsdns"
+  },
+  {
+    id: "event-1",
+    title: "Drone BootCamp",
+    Date : " 20th - 26th April 2023",
+    content: "lorem ndjndjisdoisosnsnsdfsdns"
+  },
+  {
+    id: "event-1",
+    title: "Drone BootCamp",
+    Date : " 20th - 26th April 2023",
+    content: "lorem ndjndjisdoisosnsnsdfsdns"
+  },
+  {
+    id: "event-1",
+    title: "Drone BootCamp",
+    Date : " 20th - 26th April 2023",
+    content: "lorem ndjndjisdoisosnsnsdfsdns"
+  },
+  {
+    id: "event-1",
+    title: "Drone BootCamp",
+    Date : " 20th - 26th April 2023",
+    content: "lorem ndjndjisdoisosnsnsdfsdns"
+  },
+  {
+    id: "event-1",
+    title: "Drone BootCamp",
+    Date : " 20th - 26th April 2023",
+    content: "lorem ndjndjisdoisosnsnsdfsdns"
+  },
+]
 
 export const types = [
   {

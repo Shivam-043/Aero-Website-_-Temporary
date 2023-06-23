@@ -28,6 +28,7 @@ import rcPlane from "./rcPlane.png";
 import drone from "./drone.png";
 import aeroLogo from "./aeroLogo.png";
 import hovercraft from "./hovercraft.png";
+import techspardhabg from "./techspardhabg.png";
 
 export {
   airbnb,
@@ -59,5 +60,6 @@ export {
   rcPlane,
   drone,
   aeroLogo,
-  hovercraft
+  hovercraft,
+  techspardhabg
 };

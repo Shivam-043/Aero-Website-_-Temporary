@@ -4,6 +4,8 @@ import App from './components/App'
 import styles from './style'
 import Blogs from './components/Blogs'
 import Navbar from './components/Navbar'
+import Events from './components/Events'
+import TechSpardha from './components/TechSpardha'
 
 
 
@@ -20,6 +22,8 @@ const HomePage = () => {
     <Routes>
         <Route path='/' element={<App/>}/>
         <Route path='/blogs' element={<Blogs />}/>
+        <Route path='/events' element={<Events />}/>
+        <Route path='/techspardha' element={<TechSpardha />}/>
         {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
       </Routes>
     </div>

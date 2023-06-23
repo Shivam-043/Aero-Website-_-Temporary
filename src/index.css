@@ -33,6 +33,48 @@
   background-clip: text;
   text-fill-color: transparent;
 }
+.text-gradient1 {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #26115a 0.89%,
+    #411f61 17.23%,
+    #7c335e 42.04%,
+    #a34555 55.12%,
+    #a34555 71.54%,
+    #995869 100%
+    
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
+/.text-gradient2{
+  background: linear-gradient(
+    to right,
+    #7953cd 20%,
+    #00affa 30%,
+    #0190cd 70%,
+    #764ada 80%
+);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+text-fill-color: transparent;
+background-size: 500% auto;
+animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  100% {
+      background-position: 0% 50%;
+  }
+  0% {
+      background-position: 100% 50%;
+  }
+}  
 
 .bg-blue-gradient {
   background: linear-gradient(
@@ -44,6 +86,21 @@
     #5ce1e6 51.94%,
     #33bbcf 90.29%
   );
+}
+.bg-techspardha-gradient {
+  background: linear-gradient(
+    90deg,
+    #def9fa -43.27%,
+    #bef3f5 -21.24%,
+    #9dedf0 12.19%,
+    #7de7eb 29.82%,
+    #5ce1e6 51.94%,
+    #33bbcf 90.29%
+  );
+}
+
+.bg-tech-gradient {
+  background :linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
 .bg-black-gradient {
@@ -85,6 +142,7 @@
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
+
 @-webkit-keyframes slide-top {
   0% {
     -webkit-transform: translateY(100px);
@@ -124,12 +182,23 @@
   background: var(--black-gradient);
 }
 
-.event-card {
-  background: transparent;
+.events-card {
+  background: var(--black-gradient);
+  margin: 25px;
+}
+
+.events-card:hover {
+  transform: scale(1.018);
 }
 
 .event-card:hover {
+  /* background: transparent; */
+  transform: scale(1.018);
+}
+
+.event-card {
   background: var(--black-gradient);
+  margin: 12px;
 }
 .blue__gradient {
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);

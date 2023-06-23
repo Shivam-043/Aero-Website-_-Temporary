@@ -14,15 +14,10 @@ const Blogs = () => {
       <div
         className={`${styles.boxWidth}  ${styles.paddingX} ${styles.flexCenter}`}
       >
-        <div className="grid flex-nowrap sm:justify-start justify-end w-full feedback-container relative z-[1]">
-          {/* {feedback.map((card) => (
+        <div className="flex flex-wrap sm1:justify-start justify-end w-full feedback-container relative z-[1]">
+          {feedback.map((card) => (
             <FeedbackCard key={card.id} {...card} />
-          ))} */}
- 
-          <EventsCard />
-          <EventsCard />
-          <EventsCard />
-          <EventsCard />
+          ))}
         </div>
       </div>
     </div>
