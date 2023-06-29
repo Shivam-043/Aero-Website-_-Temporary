@@ -4,6 +4,7 @@ import styles from "../style";
 
 const EventsContent = ({ content, name, title }) => (
   <div className="flex justify-between flex-col px-10 py-12 rounded-[20px] md:mr-10 sm:mr-5 mr-0 my-5 events-card w-[65vw] h-[100vh]">
+    
     <div className={`justify-center`}>
       <img src={quotes} alt="double_quotes" className="w-[42.6px] h-[27.6px] object-contain" />
       <h1 className={`${styles.heading1} text-center`}>{title}</h1>

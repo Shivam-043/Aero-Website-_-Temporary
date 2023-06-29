@@ -6,6 +6,7 @@ import Blogs from './components/Blogs'
 import Navbar from './components/Navbar'
 import Events from './components/Events'
 import TechSpardha from './components/TechSpardha'
+import Drone from './components/Drone'
 
 
 
@@ -24,6 +25,7 @@ const HomePage = () => {
         <Route path='/blogs' element={<Blogs />}/>
         <Route path='/events' element={<Events />}/>
         <Route path='/techspardha' element={<TechSpardha />}/>
+        <Route path='/drone' element={<Drone />}/>
         {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
       </Routes>
     </div>

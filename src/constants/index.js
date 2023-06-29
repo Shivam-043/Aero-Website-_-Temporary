@@ -23,6 +23,24 @@ export const navLinks = [
   },
 ];
 
+export const registerCard =[
+  {
+    id: "rcPlane",
+    title: "High Sky",
+    img: "",
+  },
+  {
+    id: "hovercraft",
+    title: "Hover Mania",
+    img: "",
+  },
+  {
+    id: "drone",
+    title: "Drone Comp.",
+    img: "",
+  },
+]
+
 export const events = [
   {
     id: "event-1",
