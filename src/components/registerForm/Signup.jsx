@@ -17,7 +17,7 @@ export default class Signup extends Component {
     team_email: "",
     team_size: "",
     team_about: "",
-
+    
     member1_name: "",
     member1_roll_number: "",
     member1_mob: "",

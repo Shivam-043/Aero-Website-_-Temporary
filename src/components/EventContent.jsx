@@ -1,17 +1,18 @@
 import { quotes , rcPlane } from "../assets";
 import styles from "../style";
+import Button from "./Button";
 
 
-const EventsContent = ({ content, name, title }) => (
-  <div className="flex justify-between flex-col px-10 py-12 rounded-[20px] md:mr-10 sm:mr-5 mr-0 my-5 events-card w-[65vw] h-[100vh]">
-    
+const EventsContent = ({ post }) => {
+
+  return (
+  <div className="flex justify-between flex-col px-10 py-12 rounded-[20px] md:mr-10 sm:mr-5 mr-0 my-5 events-card w-[65vw] h-[100vh] xs1:w-[100vw]">
     <div className={`justify-center`}>
       <img src={quotes} alt="double_quotes" className="w-[42.6px] h-[27.6px] object-contain" />
-      <h1 className={`${styles.heading1} text-center`}>{title}</h1>
+      <h1 className={`${styles.heading1} text-center`}>{post.title}</h1>
     </div>
     
-    <img src={rcPlane} alt={name} className="w-[30vw] h-[70%] rounded-full" />
-
+    <img src={rcPlane} alt={post.title} className="w-[30vw] h-[70%] xs1:w-[90%] rounded-full" />
     {/* <div className="flex flex-row">
       <img src={img} alt={name} className="w-[48px] h-[48px] rounded-full" />
       <div className="flex flex-col ml-4">
@@ -24,11 +25,20 @@ const EventsContent = ({ content, name, title }) => (
       </div>
     </div> */}
     <p className="font-poppins font-normal text-[18px] leading-[32.4px] text-white my-10">
-      {content}
+      {post.content}
     </p>
+
+    <div className="justify-spaceBetween">
+      <Button title={"Extract"} py="py-3" px="px-5"/>
+      <Button title={"Extract"} py="py-3" px="px-5"/>
+    </div>
 
   </div>
 );
+}
+  
+
+;
 
 
 export default EventsContent;

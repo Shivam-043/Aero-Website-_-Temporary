@@ -503,3 +503,12 @@ animation: textShine 5s ease-in-out infinite alternate;
   color: var(--color-accent);
 }
 
+
+/* Blog Post */
+
+.first-word-uppercase-p::first-letter {
+  font-size: 50px;
+  color: white;
+  font-weight: semibold;
+  line-height: .75;
+}
