@@ -61,7 +61,7 @@ shadow-mapSize-height={1024}
 
 const DroneCanvas =() =>{
   return(
-    <div className='h-[calc(100vh_-_50px)] w-[100vw]'>
+    <div className='h-[calc(100vh_-_50px)] w-[100vw]  xs1:h-[50vh]'>
     <Canvas frameloop='demand'
     dpr={[1, 2]}
     shadows
