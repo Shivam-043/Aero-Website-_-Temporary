@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Success = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div>form successfull created</div>;
+};
 
-export default Success
+export default Success;
