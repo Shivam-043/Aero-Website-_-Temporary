@@ -60,6 +60,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
           <input
             className="input__field"
             type="number"
+            min="1"
             placeholder="Team Size"
             value={values.team.team_size}
             onChange={handleChange("team_size")}

@@ -40,7 +40,7 @@ const member = ({
             className="input__field"
             type="tel"
             placeholder="Contact Number"
-            value={values.team.team_member[memberNumber - 1].Member_mob}
+            value={values.team.team_member[memberNumber - 1].member_mob}
             onChange={handleChange("member_mob")}
             required
           />
@@ -50,6 +50,7 @@ const member = ({
           <input
             className="input__field"
             type="number"
+            min={16}
             placeholder="Enter Age"
             value={values.team.team_member[memberNumber - 1].member_age}
             onChange={handleChange("member_age")}
@@ -61,6 +62,7 @@ const member = ({
           <input
             className="input__field"
             type="email"
+            
             placeholder="Member Email"
             value={values.team.team_member[memberNumber - 1].member_email}
             onChange={handleChange("member_email")}

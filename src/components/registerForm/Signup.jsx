@@ -32,6 +32,7 @@ export default class Signup extends Component {
         this.setState({ step: step + 1 });
       }
       else{
+        console.log(temp);
         alert("Team Created Successfully");
       }
     }
@@ -105,7 +106,7 @@ class Member {
     this.member_gender = "";
     this.member_email = "";
     this.member_age = "";
-    this.member_college_name = "";
+    this.member_college = "";
     this.member_address = "";
   }
 }
