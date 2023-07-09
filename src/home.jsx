@@ -9,6 +9,7 @@ import TechSpardha from "./components/TechSpardha";
 import Drone from "./components/Drone";
 import BlogPost from "./Blog/BlogPost";
 import BlogTemp from "./Blog/BlogTemp";
+import Auth from "./auth/auth";
 
 const HomePage = () => {
   return (
@@ -26,7 +27,8 @@ const HomePage = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
-          <Route path="/drone" element={<Drone   />} />
+          {/* <Route path="/drone" element={<Drone   />} /> */}
+          <Route path="/drone" element={<Auth  />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
         </Routes>

@@ -76,7 +76,8 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
   // Connect to MongoDB
-mongoose.connect('mongodb+srv://aeromodelling:aeromodelling1234@cluster0.ozskajy.mongodb.net/', {
+// mongoose.connect('mongodb+srv://aeromodelling:aeromodelling1234@cluster0.ozskajy.mongodb.net/', {
+mongoose.connect('mongodb+srv://aeromodellingnitkkrdatabase:b4NAfRGGziJSdCM7@auth.4juroxh.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
