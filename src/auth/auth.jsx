@@ -3,33 +3,10 @@ import "./auth.css";
 import axios from "axios";
 import server from "./apple";
 
-const Auth = () => {
-  checkCookie();
-
-  function checkCookie() {
-    var user = accessCookie("user");
-    if (user != "") {
-      window.location.href = "index.html";
-    }
-  }
-  function accessCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(";");
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == " ") {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
-  function ValidateName(inputText) {
-    let doc = document.getElementById("signName");
+const Auth = ({handleState}) => {
+  handleState();
+  function ValidateName(inputText, id) {
+    let doc = document.getElementById(id);
     if (inputText.length > 0) {
       doc.style.boxShadow = "none";
 
@@ -39,16 +16,15 @@ const Auth = () => {
       doc.focus();
       doc.style.boxShadow = "0 0 5px red";
       return false;
-      return false;
     }
   }
 
-  function ValidateEmail(inputText) {
+  function ValidateEmail(inputText, id) {
     // var mailformat = /^\w+([\.-]?\w+)*@nitkkr.ac.in/;
     var mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     //   console.log(inputText);
     //   if (inputText.match(mailformat)) {
-    let doc = document.getElementById("signEmail");
+    let doc = document.getElementById(id);
     if (mailformat.test(inputText)) {
       doc.style.boxShadow = "none";
       return true;
@@ -60,8 +36,8 @@ const Auth = () => {
     }
   }
 
-  function validatePassword(inputText) {
-    let doc = document.getElementById("signPass");
+  function validatePassword(inputText, id) {
+    let doc = document.getElementById(id);
     if (inputText.length > 6) {
       doc.style.boxShadow = "none";
       return true;
@@ -81,9 +57,9 @@ const Auth = () => {
       password: document.getElementById("signPass").value,
     };
     if (
-      ValidateName(data.name) &&
-      ValidateEmail(data.email) &&
-      validatePassword(data.password)
+      ValidateName(data.name, "signName") &&
+      ValidateEmail(data.email, "signEmail") &&
+      validatePassword(data.password, "signPass")
     ) {
       //   console.log(data);
       //   console.log(server);
@@ -92,12 +68,15 @@ const Auth = () => {
         .post(Server2, data)
         .then((res) => {
           console.log(res.data);
-          //   var info=res.data[0];
-          //   document.getElementById("fname").innerHTML=info.name;
-          //   document.getElementById("mob").innerHTML=info.Mobile_no;
+          if (res.data == "sucess") {
+            alert("Account created successfully");
+          } else {
+            alert("User already exist ");
+          }
         })
         .catch((err) => {
-          console.log(err);
+          alert(`Error creating account`);
+          console.log(JSON.parse(res).message);
         });
     }
 
@@ -116,6 +95,48 @@ const Auth = () => {
     //       .catch((error) => {
     //         console.error(error); // Handle any errors that occur during the request
     //       });
+  }
+
+  async function login() {
+    let data = {
+      email: document.getElementById("logEmail").value,
+      password: document.getElementById("logPass").value,
+    };
+    if (
+      ValidateEmail(data.email, "logEmail") &&
+      validatePassword(data.password, "logPass")
+    ) {
+      console.log(data);
+      //   console.log(server);
+      let Server2 = server + "/login";
+      axios
+        .post(Server2, data)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.cat == "sucess") {
+            var userInfo = {
+                id: res.data.email,
+                name: res.data.name,
+              };
+            var date = new Date();
+            date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+            document.cookie =
+              `user=` +
+              JSON.stringify(userInfo) +
+              `; expires=` +
+              date.toGMTString();
+            alert("Login Successfully");
+          } else if (res.data.cat == "invalidpass") {
+            alert("Wrong Password ");
+          } else {
+            alert("User does not exist");
+          }
+        })
+        .catch((err) => {
+          alert(`Error creating account`);
+          console.log(JSON.parse(res).message);
+        });
+    }
   }
   return (
     <div>
@@ -146,10 +167,10 @@ const Auth = () => {
                           <div class="form-group">
                             <input
                               type="email"
-                              name="logemail"
+                              name="logEmail"
                               class="form-style"
                               placeholder="Your Email"
-                              id="logemail"
+                              id="logEmail"
                               autocomplete="off"
                             />
                             <i class="input-icon uil uil-at"></i>
@@ -157,15 +178,15 @@ const Auth = () => {
                           <div class="form-group mt-2">
                             <input
                               type="password"
-                              name="logpass"
+                              name="logPass"
                               class="form-style"
                               placeholder="Your Password"
-                              id="logpass"
+                              id="logPass"
                               autocomplete="off"
                             />
                             <i class="input-icon uil uil-lock-alt"></i>
                           </div>
-                          <a href="#" class="btn mt-4">
+                          <a href="#" onClick={login} class="btn mt-4">
                             submit
                           </a>
                           <p class="mb-0 mt-4 text-center">

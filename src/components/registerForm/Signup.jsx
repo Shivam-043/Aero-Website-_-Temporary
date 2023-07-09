@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 import Member1 from "./Member1";
-import Member2 from "./Member2";
-import Member3 from "./Member3";
-import Member4 from "./Member4";
-import Member5 from "./Member5";
-import Success from "./Success";
 import TeamSignup from "./TeamSignup";
 
 export default class Signup extends Component {

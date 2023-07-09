@@ -8,11 +8,13 @@ const schema = require("./schema");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({
-  origin: "*",
-  methods: "GET, POST, PUT, DELETE",
-  allowedHeaders: "*",
-}));
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET, POST, PUT, DELETE",
+    allowedHeaders: "*",
+  })
+);
 const User = schema.User;
 const BlogPost = schema.blogPostSchema;
 
@@ -47,7 +49,7 @@ const blogPostData = [
 const seedData = async () => {
   try {
     await BlogPost.insertMany(blogPostData);
-    console.log("Sample blog post data inserted successfully.");
+    // console.log("Sample blog post data inserted successfully.");
     mongoose.connection.close();
   } catch (error) {
     console.error("Error inserting sample blog post data:", error);
@@ -60,7 +62,7 @@ app.get("/api/blogposts", async (req, res) => {
     // Fetch all blog posts from MongoDB
     const blogPosts = await BlogPost.find();
     res.json(blogPosts);
-    console.log("Done");
+    // console.log("Done");
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -69,7 +71,7 @@ app.get("/api/blogposts", async (req, res) => {
 
 app.get("/api/blogposts/:id", async (req, res) => {
   try {
-    console.log("Done Blog");
+    // console.log("Done Blog");
     const blog = await BlogPost.findById(req.params.id);
     res.json(blog);
   } catch (error) {
@@ -80,29 +82,58 @@ app.get("/api/blogposts/:id", async (req, res) => {
 
 app.post("/signup", async (req, res) => {
   const User = mongoose.model("User");
-  console.log(req.body);
+  // console.log(req.body);
   const user = await User.findOne({ email: req.body.email });
 
   if (user) {
     // The user exists
-    console.log("userExist");
-    res.send('userExists');
+    // console.log("userExist");
+    res.send("userExists");
   } else {
-    const newuser=new User(req.body);
-    await newuser.save().then(()=>{
-      console.log("success");
-      res.send("sucess");
-    }).catch((err)=>{
-      res.status(102).send(new Error(err));
-    });
+    const newuser = new User(req.body);
+    await newuser
+      .save()
+      .then(() => {
+        // console.log("success");
+        res.send("sucess");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(102).send(new Error(err));
+      });
     // The user does not exist
+  }
+});
+app.post("/login", async (req, res) => {
+  try {
+    const User = mongoose.model("User");
+    // console.log(req.body);
+    const user = await User.findOne({ email: req.body.email });
+
+    if (user) {
+      // The user exists
+      if (user.password == req.body.password) {
+        // console.log("userExist");
+
+        res.send({ cat: "sucess", name: user.name, email: user.email });
+      } else {
+        res.send({cat:"invalidpass"});
+      }
+    } else {
+      // The user does not exist
+      // console.log("user not exist");
+      res.send({cat:"notexist"});
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(102).send(new Error(err));
   }
 });
 
 // Start the server
 const port = 3000;
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+  // console.log(`Server started on port ${port}`);
   // Connect to MongoDB
   // mongoose.connect('mongodb+srv://aeromodelling:aeromodelling1234@cluster0.ozskajy.mongodb.net/', {
   mongoose
@@ -114,10 +145,10 @@ app.listen(port, () => {
       }
     )
     .then(() => {
-      console.log("Server Connected");
+      // console.log("Server Connected");
       // seedData();
     })
     .catch((e) => {
-      console.log(e);
+      // console.log(e);
     });
 });
