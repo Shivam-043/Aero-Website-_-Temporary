@@ -61,14 +61,24 @@ const Auth = ({handleState}) => {
       ValidateEmail(data.email, "signEmail") &&
       validatePassword(data.password, "signPass")
     ) {
-      //   console.log(data);
-      //   console.log(server);
+
       let Server2 = server + "/signup";
       axios
         .post(Server2, data)
         .then((res) => {
           console.log(res.data);
           if (res.data == "sucess") {
+            var userInfo = {
+                id: data.email,
+                name: data.name,
+              };
+            var date = new Date();
+            date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+            document.cookie =
+              `user=` +
+              JSON.stringify(userInfo) +
+              `; expires=` +
+              date.toGMTString();
             alert("Account created successfully");
           } else {
             alert("User already exist ");
@@ -125,6 +135,7 @@ const Auth = ({handleState}) => {
               JSON.stringify(userInfo) +
               `; expires=` +
               date.toGMTString();
+              handleState();
             alert("Login Successfully");
           } else if (res.data.cat == "invalidpass") {
             alert("Wrong Password ");
