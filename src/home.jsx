@@ -23,7 +23,7 @@ const HomePage = () => {
 
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs" element={<BlogTemp />} />
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
