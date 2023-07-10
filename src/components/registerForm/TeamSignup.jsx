@@ -4,8 +4,14 @@ import Button from "../Button";
 const TeamSignup = ({ nextStep, handleChange, values }) => {
   const Continue = (e) => {
     e.preventDefault();
-    nextStep();
+    // if(validateform()){
+      nextStep();
+    // }
   };
+  // function validateform() {
+
+  // }
+
   return (
     <div>
       <h1 className="text-white justify-center text-2xl poppins m-2px p-2px">
