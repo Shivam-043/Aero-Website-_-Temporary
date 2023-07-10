@@ -4,13 +4,96 @@ import Button from "../Button";
 const TeamSignup = ({ nextStep, handleChange, values }) => {
   const Continue = (e) => {
     e.preventDefault();
-    // if(validateform()){
+    if (validateform()) {
       nextStep();
-    // }
+    }
   };
-  // function validateform() {
-
-  // }
+  function validateform() {
+    if (
+      validateTeamName() &&
+      validateTeamLeaderName() &&
+      validatemobileNumber() &&
+      validateEmail() &&
+      validateamSize()
+    ) {
+      return true;
+    } else return false;
+  }
+  function validateTeamName() {
+    var doc = document.getElementById("teamName");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[a-zA-Z][a-zA-Z0-9 ]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateTeamLeaderName() {
+    var doc = document.getElementById("leaderName");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[a-zA-Z][a-zA-Z0-9 ]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validatemobileNumber() {
+    var doc = document.getElementById("mobileNum");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[0-9]{10}$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateEmail() {
+    var doc = document.getElementById("email");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateamSize() {
+    var doc = document.getElementById("teamSize");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[0-9]$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
 
   return (
     <div>
@@ -22,6 +105,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
           <input
             className="input__field "
             type="text"
+            id="teamName"
             placeholder="Team Name"
             value={values.team.team_name}
             onChange={handleChange("team_name")}
@@ -33,6 +117,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
           <input
             className="input__field"
             type="text"
+            id="leaderName"
             placeholder="Team Leader Name"
             value={values.team.team_leader_name}
             onChange={handleChange("team_leader_name")}
@@ -44,6 +129,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
           <input
             className="input__field"
             type="tel"
+            id="mobileNum"
             placeholder="Team Mobile Number"
             value={values.team.team_mob}
             onChange={handleChange("team_mob")}
@@ -55,6 +141,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
           <input
             className="input__field"
             type="email"
+            id="email"
             placeholder="Team Email"
             value={values.team.team_email}
             onChange={handleChange("team_email")}
@@ -67,6 +154,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
             className="input__field"
             type="number"
             min="1"
+            id="teamSize"
             placeholder="Team Size"
             value={values.team.team_size}
             onChange={handleChange("team_size")}
@@ -78,6 +166,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
           <textarea
             className="input__field h-auto"
             type="text"
+            id="about"
             placeholder="About Your Team"
             value={values.team.team_about}
             onChange={handleChange("team_about")}

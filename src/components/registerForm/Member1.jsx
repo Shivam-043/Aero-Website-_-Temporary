@@ -1,22 +1,122 @@
 import React from "react";
 import Button from "../Button";
 
-const member = ({
-  memberNumber,
-  prevStep,
-  nextStep,
-  handleChange,
-  values,
-}) => {
+const member = ({ memberNumber, prevStep, nextStep, handleChange, values }) => {
   const Continue = (e) => {
     e.preventDefault();
-    nextStep();
+    if (validateform()) {
+      nextStep();
+    }
   };
 
   const Previous = (e) => {
     e.preventDefault();
     prevStep();
   };
+
+  function validateform() {
+    if (
+      validateName() &&
+      validatemobileNumber() &&
+      validateAge() &&
+      validateEmail() &&
+      validateCollegeName() &&
+      validateAddress()
+    ) {
+      return true;
+    } else return false;
+  }
+
+  function validateName() {
+    var doc = document.getElementById("name");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[a-zA-Z][a-zA-Z0-9 ]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validatemobileNumber() {
+    var doc = document.getElementById("mobNum");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[0-9]{10}$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateAge() {
+    var doc = document.getElementById("age");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^(?:1[6-9]|[2-9][0-9]|100)$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateEmail() {
+    var doc = document.getElementById("email");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateCollegeName() {
+    var doc = document.getElementById("college");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[a-zA-Z][a-zA-Z0-9 ]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
+  function validateAddress() {
+    var doc = document.getElementById("address");
+    let teamName = doc.value.trim();
+    if (teamName.length > 0) {
+      var regex = /^[a-zA-Z][a-zA-Z0-9 ]+$/; //regex to
+      // console.log(regex.test(teamName));
+      if (regex.test(teamName)) {
+        doc.style.borderColor = "";
+        return true;
+      }
+    }
+    doc.focus();
+    doc.style.borderColor = "red";
+    return false;
+  }
 
   return (
     <div>
@@ -28,6 +128,7 @@ const member = ({
           <input
             className={`input__field`}
             type="text"
+            id="name"
             placeholder="Full Name"
             value={values.team.team_member[memberNumber - 1].member_name}
             onChange={handleChange("member_name")}
@@ -38,6 +139,7 @@ const member = ({
         <label className="input">
           <input
             className="input__field"
+            id="mobNum"
             type="tel"
             placeholder="Contact Number"
             value={values.team.team_member[memberNumber - 1].member_mob}
@@ -49,6 +151,7 @@ const member = ({
         <label className="input">
           <input
             className="input__field"
+            id="age"
             type="number"
             min={16}
             placeholder="Enter Age"
@@ -61,8 +164,8 @@ const member = ({
         <label className="input">
           <input
             className="input__field"
+            id="email"
             type="email"
-            
             placeholder="Member Email"
             value={values.team.team_member[memberNumber - 1].member_email}
             onChange={handleChange("member_email")}
@@ -73,6 +176,7 @@ const member = ({
         <label className="input">
           <input
             className="input__field"
+            id="college"
             type="Text"
             placeholder="College Name"
             value={values.team.team_member[memberNumber - 1].member_college}
@@ -84,6 +188,7 @@ const member = ({
         <label className="input">
           <textarea
             className="input__field"
+            id="address"
             type="text"
             placeholder="Address"
             value={values.team.team_member[memberNumber - 1].member_address}
@@ -99,7 +204,12 @@ const member = ({
           <Button title={"Prev"} py="py-3" px="px-5" onClick={Previous} />
         </div>
         <div className="absolute right-10 bottom-10">
-          <Button title={(memberNumber<values.team.team_size)?"Next":"submit"} py="py-3" px="px-5" onClick={Continue} />
+          <Button
+            title={memberNumber < values.team.team_size ? "Next" : "submit"}
+            py="py-3"
+            px="px-5"
+            onClick={Continue}
+          />
         </div>
       </div>
     </div>
