@@ -17,6 +17,7 @@ app.use(
 );
 const User = schema.User;
 const BlogPost = schema.blogPostSchema;
+const Team= schema.Team;
 
 const blogPostData = [
   {
@@ -81,7 +82,7 @@ app.get("/api/blogposts/:id", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  const User = mongoose.model("User");
+  // const User = mongoose.model("User");
   // console.log(req.body);
   const user = await User.findOne({ email: req.body.email });
 
@@ -106,7 +107,7 @@ app.post("/signup", async (req, res) => {
 });
 app.post("/login", async (req, res) => {
   try {
-    const User = mongoose.model("User");
+    // const User = mongoose.model("User");
     // console.log(req.body);
     const user = await User.findOne({ email: req.body.email });
 
@@ -125,6 +126,27 @@ app.post("/login", async (req, res) => {
       res.send({cat:"notexist"});
     }
   } catch (err) {
+    console.log(err);
+    res.status(102).send(new Error(err));
+  }
+});
+
+app.post("/registerteam", async(req,res)=>{
+  try{
+    const team=new Team(req.body);
+    // console.log(req.body);
+    // console.log(team);
+    await team.save()
+    .then(() => {
+      res.send("sucess");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(102).send(new Error(err));
+    });
+    
+
+  }catch(err){
     console.log(err);
     res.status(102).send(new Error(err));
   }

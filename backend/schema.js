@@ -1,5 +1,5 @@
-const { MongoUnexpectedServerResponseError } = require('mongodb');
-const mongoose = require('mongoose');
+const { MongoUnexpectedServerResponseError } = require("mongodb");
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   name: String,
@@ -7,17 +7,29 @@ const UserSchema = new mongoose.Schema({
   password: String,
 });
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 
 // Define a BlogPost schema
 const blogPostSchema = new mongoose.Schema({
-    image: String,
-    title: String,
-    asperts: String,
-    content: String,
-  });
-  
-  // Define a BlogPost model
-  const BlogPost = mongoose.model('BlogPost', blogPostSchema);
+  image: String,
+  title: String,
+  asperts: String,
+  content: String,
+});
 
-module.exports= {User,BlogPost};
+// Define a BlogPost model
+const BlogPost = mongoose.model("BlogPost", blogPostSchema);
+
+const teamSchema = new mongoose.Schema({
+  team_name: String,
+  team_leader_name: String,
+  team_mob: String,
+  team_email: String,
+  team_size: Number,
+  team_about: String,
+  team_member: Array,
+});
+
+const Team = mongoose.model("Team", teamSchema);
+
+module.exports = { User, BlogPost, Team };
