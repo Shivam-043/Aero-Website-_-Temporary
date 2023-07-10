@@ -512,3 +512,12 @@ animation: textShine 5s ease-in-out infinite alternate;
   font-weight: semibold;
   line-height: .75;
 }
+
+.blog-section-text {
+  writing-mode: vertical-rl; 
+}
+
+.blog-section-text-lg {
+  writing-mode: horizontal-tb; 
+}
+

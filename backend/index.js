@@ -165,9 +165,11 @@ app.listen(port, () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }
-    )
+    ).then(() => {
+      console.log("Mongoogse Connected")
+    })
     .then(() => {
-      // console.log("Server Connected");
+      console.log("Server Connected");
       // seedData();
     })
     .catch((e) => {
