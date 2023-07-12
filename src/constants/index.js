@@ -101,23 +101,23 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Rewards",
+    title: "Knowledge",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. ",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "100% Secured",
+    title: "Exposer",
     content:
-      "We take proactive steps make sure your information and transactions are secure.",
+      "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. ",
   },
   {
     id: "feature-3",
     icon: send,
-    title: "Balance Transfer",
+    title: "Events",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque.",
   },
 ];
 

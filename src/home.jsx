@@ -10,6 +10,7 @@ import Drone from "./components/Drone";
 import BlogPost from "./Blog/BlogPost";
 import BlogTemp from "./Blog/BlogTemp";
 import Auth from "./auth/auth";
+import AboutUs from "./components/AboutUs";
 
 const HomePage = () => {
   return (
@@ -23,13 +24,14 @@ const HomePage = () => {
 
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/blogs" element={<BlogTemp />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
-          <Route path="/drone" element={<Drone />} />
+          <Route path="/drone" element={<AboutUs />} />
           {/* <Route path="/drone" element={<Auth  />} /> */}
-          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/api/blogposts/:id" element={<BlogPost/>} />
+          
           {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
         </Routes>
       </div>

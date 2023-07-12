@@ -19,6 +19,7 @@ const App = () => (
         {/* <Testimonials /> */}
         <Billing props = {1}/>
         {/* <Clients /> */}
+        <Testimonials />
         <CTA />
         <Footer />
 

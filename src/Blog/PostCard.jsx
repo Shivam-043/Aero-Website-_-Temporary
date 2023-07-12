@@ -9,15 +9,15 @@ const PostCard = ({ _id , content, name, title, image ,asperts}) => {
       <img
         src={image}
         alt="double_quotes"
-        className="object-contain rounded-lg w-100"
+        className="rounded-lg w-[100vw] h-[20vh]"
 
       />
-      <h1 className={`text-3xl text-white font-semibold font-poppins`}>{title}</h1>
-      <p className="font-poppins font-normal text-[18px] leading-[32.4px] text-white my-5">
+      <h1 className={`text-3xl text-white font-semibold font-poppins content-center justify-center`}>{title}</h1>
+      <p className="font-poppins font-normal text-[18px] leading-[32.4px] text-white my-5 xs1:w-[80vw]">
         {asperts}
       </p>
 
-      <div className="flex flex-row justify-stretch">
+      <div className="flex flex-row justify-stretch justify-around">
         <div className="flex flex-row"> 
           <img
             src={image}
@@ -36,7 +36,7 @@ const PostCard = ({ _id , content, name, title, image ,asperts}) => {
 
         <div>
           <h1 className="font-poppins font-semibold text-[15px] leading-[32px] text-white">Time</h1>
-          <Link to={`/blog/${_id}`}>Read More</Link>
+          <Link to={`/api/blogposts/${_id}`}>Read More</Link>
         </div>
       </div>
     </div>

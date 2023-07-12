@@ -6,6 +6,7 @@ import { feedback } from "../constants";
 import FeedbackCard from "./FeedbackCard";
 import EventsCard from "./EventsCard";
 import PostCard from "../Blog/PostCard";
+import Footer from "./Footer";
 
 const Blogs = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -15,32 +16,28 @@ const Blogs = () => {
     axios.get('http://localhost:3000/api/blogposts')
       .then(response => {
         setBlogPosts(response.data);
+        
       })
       .catch(error => {
         console.error(error);
       });
   }, []);
   return (
-    <div className={`bg-primary w-full overflow-hidden items-center`}>
+    <div className={`bg-primary w-full overflow-hidden items-center px-5`}>
         <h1 className={`${styles.heading2} ${styles.paddingX}`}>
             AeroModelling BlogPost
         </h1>
       <div
         className={`${styles.boxWidth}  ${styles.paddingX} ${styles.flexCenter}`}
       >
-        <div className="flex flex-wrap sm1:justify-start justify-center w-full feedback-container relative z-[1]">
+        <div className="flex flex-wrap xs1:justify-start justify-center w-full feedback-container relative z-[1] xs1:flex-nowrap xs1:scroll-smooth xs1:overflow-x-auto">
           {blogPosts.map((card) => (
             <PostCard key={card.id} {...card} />
           ))}
         </div>
-
-{/* {blogPosts.map(post => (
-        <div key={post._id}>
-          <h2 className="text-white">{post.title}</h2>
-          <p className="text-white">{post.content}</p>
-        </div>
-      ))} */}
       </div>
+
+      <Footer/>
     </div>
 
   );

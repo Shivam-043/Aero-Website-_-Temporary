@@ -4,7 +4,7 @@ import axios from "axios";
 import server from "./apple";
 
 const Auth = ({handleState}) => {
-  handleState();
+  // handleState();
   function ValidateName(inputText, id) {
     let doc = document.getElementById(id);
     if (inputText.length > 0) {

@@ -8,9 +8,8 @@ const UserSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", UserSchema);
-
 // Define a BlogPost schema
-const blogPostSchema = new mongoose.Schema({
+const BlogPostSchema = new mongoose.Schema({
   image: String,
   title: String,
   asperts: String,
@@ -18,7 +17,7 @@ const blogPostSchema = new mongoose.Schema({
 });
 
 // Define a BlogPost model
-const BlogPost = mongoose.model("BlogPost", blogPostSchema);
+const BlogPost = mongoose.model("BlogPost", BlogPostSchema);
 
 const teamSchema = new mongoose.Schema({
   team_name: String,

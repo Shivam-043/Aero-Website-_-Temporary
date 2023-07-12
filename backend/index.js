@@ -16,7 +16,7 @@ app.use(
   })
 );
 const User = schema.User;
-const BlogPost = schema.blogPostSchema;
+const BlogPost = schema.BlogPost;
 const Team= schema.Team;
 
 const blogPostData = [
@@ -47,15 +47,7 @@ const blogPostData = [
   },
 ];
 
-const seedData = async () => {
-  try {
-    await BlogPost.insertMany(blogPostData);
-    // console.log("Sample blog post data inserted successfully.");
-    mongoose.connection.close();
-  } catch (error) {
-    console.error("Error inserting sample blog post data:", error);
-  }
-};
+
 
 // Define a route to fetch blog posts
 app.get("/api/blogposts", async (req, res) => {
@@ -80,6 +72,15 @@ app.get("/api/blogposts/:id", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+const seedData = async () => {
+  try {
+    await BlogPost.insertMany(blogPostData);
+    console.log("Sample blog post data inserted successfully.");
+    mongoose.connection.close();
+  } catch (error) {
+    console.error("Error inserting sample blog post data:", error);
+  }
+};
 
 app.post("/signup", async (req, res) => {
   // const User = mongoose.model("User");
