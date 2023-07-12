@@ -3,7 +3,7 @@ import { useState } from "react";
 import { close, aeroLogo, menu } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+const Navbar = (isLogin) => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
 
@@ -20,20 +20,21 @@ const Navbar = () => {
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
-          <li
-            key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[25px]  ${
-              active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => {
-              setActive(nav.title);
-            }}
-          >
-            <Link to={`/${nav.id}`}>
-              <li>{nav.title}</li>
-            </Link>
-          </li>
+          <Link to={`/${nav.id}`}>
+            <li
+              key={nav.id}
+              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+                active === nav.title ? "text-white" : "text-dimWhite"
+              } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+              onClick={() => {
+                setActive(nav.title);
+              }}
+            >
+              {nav.title}
+            </li>
+          </Link>
         ))}
+        
       </ul>
 
       <div className="sm:hidden flex flex-1 justify-end items-center">
