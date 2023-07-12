@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import axios from "axios";
 import server from "./apple";
 
 // const Auth = ({handleState}) => {
-const Auth = () => {
+const Auth = (props) => {
+  const navigate = useNavigate();
   
   // handleState();
   function ValidateName(inputText, id) {
@@ -79,10 +81,11 @@ const Auth = () => {
             document.cookie =
               `user=` +
               JSON.stringify(userInfo) +
-              `; expires=` +
+              `;SameSite=None; expires=` +
               date.toGMTString();
               alert("Account created successfully");
-              window.location.href="/techspardha";
+              props.setisLogin();
+              navigate("/techspardha");
           } else {
             alert("User already exist ");
           }
@@ -136,12 +139,14 @@ const Auth = () => {
             document.cookie =
               `user=` +
               JSON.stringify(userInfo) +
-              `; expires=` +
+              `;SameSite=None; expires=` +
               date.toGMTString();
-              document.getElementsByClassName('navvalues')[5].innerHTML="Logout" ;
-              window.location.href="/techspardha";
+              props.setLogin();
+              navigate("/techspardha");
               // handleState();
             // alert("Login Successfully");
+            
+            
           } else if (res.data.cat == "invalidpass") {
             alert("Wrong Password ");
           } else {

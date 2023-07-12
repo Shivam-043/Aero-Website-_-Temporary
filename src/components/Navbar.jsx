@@ -3,7 +3,7 @@ import { useState } from "react";
 import { close, aeroLogo, menu } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+const Navbar = (isLogin) => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
 

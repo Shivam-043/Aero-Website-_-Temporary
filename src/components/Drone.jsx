@@ -20,7 +20,8 @@ const Drone = () => {
 
         <div className='box-border h-[90vh] w-[40vw] p-4 border-1 rounded  shadow-inner shadow-2xl gap-6 bg-gray-700 relative xs1:w-auto'>
           {/* registration for team  */}
-          <Checkauth />
+          {/* <Checkauth /> */}
+          <Signup />
         </div>
 
 
