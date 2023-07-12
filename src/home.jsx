@@ -20,9 +20,10 @@ const HomePage = () => {
     setisLogin(val);
   }
   useEffect(() => {
+ 
     checkCookie();
-  }, []);
-  function checkCookie() {
+  }, [islogin]);
+  function checkCookie () {
     console.log("check cookie runnig");
     var user = accessCookie("user");
     if (user !== "") {
@@ -30,12 +31,14 @@ const HomePage = () => {
       setisLogin(1);
       document.getElementsByClassName("navvalues")[5].innerHTML = "logout";
     } else {
+      console.log("Not Found");
       setisLogin(0);
       document.getElementsByClassName("navvalues")[5].innerHTML = "login";
     }
     //delete cookie
     // document.cookie = "user=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
   }
+  
 
   function accessCookie(cname) {
     let name = cname + "=";
@@ -64,7 +67,7 @@ const HomePage = () => {
 
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/blogs" element={<BlogTemp />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
