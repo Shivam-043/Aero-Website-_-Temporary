@@ -29,6 +29,7 @@ const HomePage = () => {
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
           <Route path="/drone" element={<Drone />} />
           {/* <Route path="/drone" element={<Auth  />} /> */}
+          <Route path="/authenticate" element={<Auth/>}/>
           <Route path="/blog/:id" element={<BlogPost />} />
           {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
         </Routes>

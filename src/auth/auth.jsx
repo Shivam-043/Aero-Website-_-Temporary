@@ -3,8 +3,10 @@ import "./auth.css";
 import axios from "axios";
 import server from "./apple";
 
-const Auth = ({handleState}) => {
-  handleState();
+// const Auth = ({handleState}) => {
+const Auth = () => {
+  
+  // handleState();
   function ValidateName(inputText, id) {
     let doc = document.getElementById(id);
     if (inputText.length > 0) {
@@ -79,7 +81,8 @@ const Auth = ({handleState}) => {
               JSON.stringify(userInfo) +
               `; expires=` +
               date.toGMTString();
-            alert("Account created successfully");
+              alert("Account created successfully");
+              window.location.href="/techspardha";
           } else {
             alert("User already exist ");
           }
@@ -135,8 +138,10 @@ const Auth = ({handleState}) => {
               JSON.stringify(userInfo) +
               `; expires=` +
               date.toGMTString();
-              handleState();
-            alert("Login Successfully");
+              document.getElementsByClassName('navvalues')[5].innerHTML="Logout" ;
+              window.location.href="/techspardha";
+              // handleState();
+            // alert("Login Successfully");
           } else if (res.data.cat == "invalidpass") {
             alert("Wrong Password ");
           } else {
@@ -145,7 +150,7 @@ const Auth = ({handleState}) => {
         })
         .catch((err) => {
           alert(`Error creating account`);
-          console.log(JSON.parse(res).message);
+          console.log(err);
         });
     }
   }
@@ -168,7 +173,7 @@ const Auth = ({handleState}) => {
                   id="reg-log"
                   name="reg-log"
                 />
-                <label for="reg-log"></label>
+                <label htmlFor="reg-log"></label>
                 <div className="card-3d-wrap mx-auto">
                   <div className="card-3d-wrapper">
                     <div className="card-front">
@@ -182,7 +187,7 @@ const Auth = ({handleState}) => {
                               className="form-style"
                               placeholder="Your Email"
                               id="logEmail"
-                              autocomplete="off"
+                              autoComplete="off"
                             />
                             <i className="input-icon uil uil-at"></i>
                           </div>
@@ -193,7 +198,7 @@ const Auth = ({handleState}) => {
                               className="form-style"
                               placeholder="Your Password"
                               id="logPass"
-                              autocomplete="off"
+                              autoComplete="off"
                             />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
@@ -219,7 +224,7 @@ const Auth = ({handleState}) => {
                               className="form-style"
                               placeholder="Your Full Name"
                               id="signName"
-                              autocomplete="off"
+                              autoComplete="off"
                             />
                             <i className="input-icon uil uil-user"></i>
                           </div>
@@ -230,7 +235,7 @@ const Auth = ({handleState}) => {
                               className="form-style"
                               placeholder="Your Email"
                               id="signEmail"
-                              autocomplete="off"
+                              autoComplete="off"
                             />
                             <i className="input-icon uil uil-at"></i>
                           </div>
@@ -241,7 +246,7 @@ const Auth = ({handleState}) => {
                               className="form-style"
                               placeholder="Your Password"
                               id="signPass"
-                              autocomplete="off"
+                              autoComplete="off"
                             />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
