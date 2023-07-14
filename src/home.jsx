@@ -20,9 +20,8 @@ const HomePage = () => {
     setisLogin(val);
   }
   useEffect(() => {
- 
     checkCookie();
-  }, [islogin]);
+  }, []);
   function checkCookie () {
     console.log("check cookie runnig");
     var user = accessCookie("user");
@@ -92,7 +91,7 @@ const HomePage = () => {
               )
             }
           />
-          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/api/blogposts/:id" element={<BlogPost />} />
           {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
         </Routes>
       </div>

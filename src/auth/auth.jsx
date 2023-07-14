@@ -81,7 +81,7 @@ const Auth = (props) => {
             document.cookie =
               `user=` +
               JSON.stringify(userInfo) +
-              `;SameSite=None; expires=` +
+              `; expires=` +
               date.toGMTString();
               alert("Account created successfully");
               props.setisLogin();
@@ -139,7 +139,7 @@ const Auth = (props) => {
             document.cookie =
               `user=` +
               JSON.stringify(userInfo) +
-              `;SameSite=None; expires=` +
+              `; expires=` +
               date.toGMTString();
               props.setLogin();
               navigate("/techspardha");

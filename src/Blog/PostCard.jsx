@@ -13,8 +13,8 @@ const PostCard = ({ _id , content, name, title, image ,asperts}) => {
 
       />
       <h1 className={`text-3xl text-white font-semibold font-poppins content-center justify-center`}>{title}</h1>
-      <p className="font-poppins font-normal text-[18px] leading-[32.4px] text-white my-5 xs1:w-[80vw]">
-        {asperts}
+      <p dangerouslySetInnerHTML={{ __html: asperts }} className="font-poppins font-normal text-[18px] leading-[32.4px] text-white my-5 xs1:w-[80vw]">
+        
       </p>
 
       <div className="flex flex-row justify-stretch justify-around">

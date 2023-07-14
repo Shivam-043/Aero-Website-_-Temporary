@@ -51,7 +51,7 @@ const BlogPost = () => {
       try {
         console.log("Called");
         const response = await fetch(
-          `http://localhost:3000/api/blogposts/${id}`
+          `http://localhost:3001/api/blogposts/${id}`
         );
         const data = await response.json();
         setBlog(data);
@@ -104,6 +104,10 @@ const BlogPost = () => {
   if (!blogPostData) {
     return <div>Error occurred while fetching data</div>;
   }
+
+  const code = `<p>
+  ${blogPostData.content}
+</p>`;
   return (
 
           <div className="bg-primary relative">
@@ -136,30 +140,31 @@ const BlogPost = () => {
               <p className="w-1/6 blog-section-text xs1:pt-[10vh] pt-[5vh] text-[20px] font-bold align-center xs1:blog-section-text ">
                 Introduction
               </p>
-              <p className={`w-3/4 first-word-uppercase-p pt-[5vh] pb-[5vh] text-white font-poppins xs1:my-3 font-normal text-[15px] xs1:mx-5`}>
-              {blogPostData.content == null
+              <p dangerouslySetInnerHTML={{ __html: blogPostData.intro }} className={`w-3/4 first-word-uppercase-p pt-[5vh] pb-[5vh] text-white font-poppins xs1:my-3 font-normal text-[15px] xs1:mx-5`}>
+              {/* {blogPostData.content == null
                 ? "There is no doubt that people find out who they really are when their backs are against the wall. Such was the case for Sara Owen, a single mother who found herself without the ability to make ends meet and provide for her three children. says Sara, who even found herself having to hide from her landlord on occasion. But everything changed when Sara decided that she was going to take her destiny into her own hands."
-                : blogPostData.content}
+                : blogPostData.content} */}
+
               </p>
             </div>
             <div className="Introduction flex pt-[5vh]">
               <p className="w-1/6 blog-section-text xs1:pt-[5vh]  text-[20px] font-bold">
               Content
               </p>
-              <p class=" w-3/4  text-white font-poppins mb-3 font-normal pb-[5vh] text-[15px] xs1:mx-5">
-              {blogPostData.content == null
+              <p dangerouslySetInnerHTML={{ __html: blogPostData.content }} class=" w-3/4  text-white font-poppins mb-3 font-normal pb-[5vh] text-[15px] xs1:mx-5">
+              {/* {blogPostData.content == null
                 ? "There is no doubt that people find out who they really are when their backs are against the wall. Such was the case for Sara Owen, a single mother who found herself without the ability to make ends meet and provide for her three children. says Sara, who even found herself having to hide from her landlord on occasion. But everything changed when Sara decided that she was going to take her destiny into her own hands."
-                : blogPostData.content}
+                : blogPostData.content} */}
               </p>
             </div>
             <div className="Introduction flex pt-[5vh]">
               <p className="w-1/6 blog-section-text xs1:pt-[5vh] text-[20px] font-bold">
               Conclusion
               </p>
-              <p class=" w-3/4  text-white font-poppins mb-3 font-normal text-[15px] xs1:mx-5">
-              {blogPostData.content == null
+              <p dangerouslySetInnerHTML={{ __html: blogPostData.conclusion }} class=" w-3/4  text-white font-poppins mb-3 font-normal text-[15px] xs1:mx-5">
+              {/* {blogPostData.content == null
                 ? "There is no doubt that people find out who they really are when their backs are against the wall. Such was the case for Sara Owen, a single mother who found herself without the ability to make ends meet and provide for her three children. says Sara, who even found herself having to hide from her landlord on occasion. But everything changed when Sara decided that she was going to take her destiny into her own hands."
-                : blogPostData.content}
+                : blogPostData.content} */}
               </p>
             </div>
           </div>
