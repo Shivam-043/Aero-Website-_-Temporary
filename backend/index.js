@@ -19,6 +19,8 @@ const User = schema.User;
 const BlogPost = schema.BlogPost;
 const Team= schema.Team;
 
+var db = mongoose.connection;
+
 const blogPostData = [
   {
     image:
@@ -64,7 +66,7 @@ app.get("/api/blogposts", async (req, res) => {
 
 app.get("/api/blogposts/:id", async (req, res) => {
   try {
-    // console.log("Done Blog");
+    console.log("Done Blog");
     const blog = await BlogPost.findById(req.params.id);
     res.json(blog);
   } catch (error) {
@@ -72,6 +74,7 @@ app.get("/api/blogposts/:id", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
 const seedData = async () => {
   try {
     await BlogPost.insertMany(blogPostData);
@@ -154,12 +157,12 @@ app.post("/registerteam", async(req,res)=>{
 });
 
 // Start the server
-const port = 3000;
-app.listen(port, () => {
+const port = 3001;
+app.listen(port, async() => {
   // console.log(`Server started on port ${port}`);
   // Connect to MongoDB
   // mongoose.connect('mongodb+srv://aeromodelling:aeromodelling1234@cluster0.ozskajy.mongodb.net/', {
-  mongoose
+  await mongoose
     .connect(
       "mongodb+srv://aeromodellingnitkkrdatabase:b4NAfRGGziJSdCM7@auth.4juroxh.mongodb.net/?retryWrites=true&w=majority",
       {
@@ -168,6 +171,7 @@ app.listen(port, () => {
       }
     ).then(() => {
       console.log("Mongoogse Connected")
+      
     })
     .then(() => {
       console.log("Server Connected");

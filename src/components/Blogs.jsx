@@ -13,7 +13,7 @@ const Blogs = () => {
 
   useEffect(() => {
     // Fetch blog posts from the server
-    axios.get('http://localhost:3000/api/blogposts')
+    axios.get('http://localhost:3001/api/blogposts')
       .then(response => {
         setBlogPosts(response.data);
         
