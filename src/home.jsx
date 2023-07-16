@@ -6,12 +6,13 @@ import Blogs from "./components/Blogs";
 import Navbar from "./components/Navbar";
 import Events from "./components/Events";
 import TechSpardha from "./components/TechSpardha";
-import Drone from "./components/Drone";
+import Drone from "./components/AboutUs";
 import BlogPost from "./Blog/BlogPost";
 import BlogTemp from "./Blog/BlogTemp";
 import Auth from "./auth/auth";
 import Logoutcontrol from "./auth/logoutcontrol";
 import { useState, useEffect } from "react";
+import AboutUs from "./components/AboutUs";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
@@ -67,6 +68,7 @@ const HomePage = () => {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
