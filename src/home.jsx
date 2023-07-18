@@ -19,6 +19,7 @@ const HomePage = () => {
   function setStateisLogin(val) {
     setisLogin(val);
   }
+  
   useEffect(() => {
     checkCookie();
   }, []);

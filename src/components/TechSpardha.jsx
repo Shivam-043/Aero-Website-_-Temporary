@@ -7,6 +7,7 @@ import RegisterCard from './registerCard'
 import TechspardhaCarousel from './TechspardhaCorousel'
 import Footer from './Footer'
 import Faqs from './faqs'
+import Popup from './Techspardha/PopUp'
 // import { Carousel } from "@material-tailwind/react";
 
 
@@ -48,6 +49,7 @@ const TechSpardha = () => {
             <div>
                 <Faqs />
             </div>
+            <Popup />
             <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
 
                 <div className={`${styles.boxWidth}`}>

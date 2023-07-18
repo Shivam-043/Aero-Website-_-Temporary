@@ -402,6 +402,7 @@ animation: textShine 5s ease-in-out infinite alternate;
   display: flex;
   align-items: center;
   justify-content: center;
+  backface-visibility: visible;
 }
 .card .card-back a {
   transform-style: preserve-3d;
@@ -519,5 +520,59 @@ animation: textShine 5s ease-in-out infinite alternate;
 
 .blog-section-text-lg {
   writing-mode: horizontal-tb; 
+}
+
+/* Testimonial Scroller */
+
+
+.testimonial {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.testimonial::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Pointer */
+
+.link{
+  cursor: pointer;
+}
+
+
+/* PopUp Box */
+
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .8);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.popup:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popup__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.popup__text {
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
 }
 
