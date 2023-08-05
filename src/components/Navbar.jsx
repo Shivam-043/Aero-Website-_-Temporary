@@ -1,9 +1,8 @@
 import { useState } from "react";
-
 import { close, aeroLogo, menu } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
-const Navbar = (isLogin) => {
+const Navbar = (props) => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
 
@@ -25,7 +24,8 @@ const Navbar = (isLogin) => {
               key={nav.id}
               className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
                 active === nav.title ? "text-white" : "text-dimWhite"
-              } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+              // } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+              } ${ "mr-10"}`}
               onClick={() => {
                 setActive(nav.title);
               }}
@@ -34,9 +34,42 @@ const Navbar = (isLogin) => {
             </li>
           </Link>
         ))}
-
-        <Link to={`admin`}>
+          
+       {(!props.isLogin)? <Link to={`login`}>
             <li
+            key={'login'}
+              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+                active === "Login" ? "text-white" : "text-dimWhite"
+              // } ${index == 7 ? "mr-0" : "mr-10"}`}
+              } "mr-0"`}
+              onClick={() => {
+                setActive("Login");
+              }}
+            >
+              {"Login"}
+            </li>
+          </Link>
+:
+    <Link to={`logout`}>
+            <li
+              key={'logout'}
+              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+                active === "Logout" ? "text-white" : "text-dimWhite"
+              // } ${index == 7 ? "mr-0" : "mr-10"}`}
+              } "mr-0"`}
+              onClick={() => {
+                setActive("Logout");
+              }}
+            >
+              {"Logout"}
+            </li>
+          </Link>
+       
+       }
+       {
+       (props.isadmin)?<Link to={`admin`}>
+            <li
+            key={'admin'}
               className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
                 active === "Admin" ? "text-white" : "text-dimWhite"
               // } ${index == 7 ? "mr-0" : "mr-10"}`}
@@ -48,6 +81,9 @@ const Navbar = (isLogin) => {
               {"Admin"}
             </li>
           </Link>
+          :
+          <span/>}
+        
 
         
       </ul>

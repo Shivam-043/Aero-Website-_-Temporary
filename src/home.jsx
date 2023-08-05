@@ -17,7 +17,7 @@ import Admin from "./components/admin/admin";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
-  const [isadmin,setisAdmin] =useState(0);
+  const [isadmin,setisAdmin] =useState(false);
   const [user,setUser] = useState("");
   // var user="jay ";
   // checkCookie();
@@ -28,18 +28,23 @@ const HomePage = () => {
   useEffect(() => {
     checkCookie();
   }, []);
-  function checkCookie () {
+  async function checkCookie () {
     console.log("check cookie runnig");
-    setUser ( accessCookie("user"));
+    var usr=accessCookie("user");
     console.log(user);
-    if (user !== "") {
+    if (usr !== "") {
+      setUser ( JSON.parse(usr));
+      if(usr.role=='admin'){
+        console.log("he is admin");
+        setisAdmin(true);
+      }
       console.log("cookie found");
       setisLogin(1);
-      document.getElementsByClassName("navvalues")[5].innerHTML = "logout";
+      // document.getElementsByClassName("navvalues")[5].innerHTML = "logout";
     } else {
       console.log("Not Found");
       setisLogin(0);
-      document.getElementsByClassName("navvalues")[5].innerHTML = "login";
+      // document.getElementsByClassName("navvalues")[5].innerHTML = "login";
     }
     //delete cookie
     // document.cookie = "user=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
@@ -67,7 +72,7 @@ const HomePage = () => {
       <div className="bg-primary w-full overflow-hidden">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
-            <Navbar isLogin={islogin} />
+            <Navbar isLogin={islogin} isadmin={isadmin}/>
           </div>
         </div>
 
@@ -78,7 +83,9 @@ const HomePage = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           <Route path="/admin" element={<Admin user={user}/>}/>
-          {/* <Route path='/drone' element={<BlogTemp />}/> */}
+          {/* <Route path='/logout' element={<Drone />}/>
+          <Route path='/login' element={<Auth isLogin={islogin} setLogin={checkCookie} />}/> */}
+
           <Route
             path="/drone"
             element={
@@ -90,7 +97,10 @@ const HomePage = () => {
             }
           />
           {/* <Route path="/drone" element={<Auth  />} /> */}
-          <Route
+          <Route path="/login" element={<Auth isLogin={islogin} setLogin={checkCookie} />}/>
+          <Route path="/logout" element={<Logoutcontrol setLogin={checkCookie} isLogin={islogin} setisAdmin={setisAdmin} />}/>
+          
+          {/* <Route
             path="/authenticate"
             element={
               !islogin ? (
@@ -99,7 +109,7 @@ const HomePage = () => {
                 <Logoutcontrol setLogin={checkCookie} />
               )
             }
-          />
+          /> */}
           <Route path="/api/blogposts/:id" element={<BlogPost />} />
           {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
         </Routes>

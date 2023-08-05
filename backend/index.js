@@ -128,14 +128,21 @@ app.post("/login", async (req, res) => {
   try {
     // const User = mongoose.model("User");
     // console.log(req.body);
-    const user = await User.findOne({ email: req.body.email });
+    const user1 = await User.findOne({ email: req.body.email });
+    const user = user1;
 
     if (user) {
       // The user exists
+      console.log(user.role);
       if (user.password == req.body.password) {
         // console.log("userExist");
-        
-        res.send({ cat: "sucess", name: user.name, email: user.email });
+        if(user.role=='admin'){
+          console.log("admin");
+        res.send({ cat: "sucess", name: user.name, email: user.email ,role:user.role});
+        }
+        else{
+          res.send({ cat: "sucess", name: user.name, email: user.email });
+        }
       } else {
         res.send({cat:"invalidpass"});
       }

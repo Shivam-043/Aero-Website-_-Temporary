@@ -21,10 +21,10 @@ export const navLinks = [
     id: "techspardha",
     title: "TechSpardha",
   },
-  {
-    id:"authenticate",
-    title:"Login",
-  },
+  // {
+  //   id:"authenticate",
+  //   title:"Login",
+  // },
 ];
 
 export const registerCard =[

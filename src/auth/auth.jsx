@@ -7,7 +7,7 @@ import server from "./apple";
 // const Auth = ({handleState}) => {
 const Auth = (props) => {
   const navigate = useNavigate();
-  
+
   // handleState();
   function ValidateName(inputText, id) {
     let doc = document.getElementById(id);
@@ -65,7 +65,6 @@ const Auth = (props) => {
       ValidateEmail(data.email, "signEmail") &&
       validatePassword(data.password, "signPass")
     ) {
-
       let Server2 = server + "/signup";
       axios
         .post(Server2, data)
@@ -73,9 +72,9 @@ const Auth = (props) => {
           console.log(res.data);
           if (res.data == "sucess") {
             var userInfo = {
-                id: data.email,
-                name: data.name,
-              };
+              id: data.email,
+              name: data.name,
+            };
             var date = new Date();
             date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
             document.cookie =
@@ -83,9 +82,9 @@ const Auth = (props) => {
               JSON.stringify(userInfo) +
               `; expires=` +
               date.toGMTString();
-              alert("Account created successfully");
-              props.setisLogin();
-              navigate("/techspardha");
+            alert("Account created successfully");
+            props.setisLogin();
+            navigate("/techspardha");
           } else {
             alert("User already exist ");
           }
@@ -130,10 +129,19 @@ const Auth = (props) => {
         .then((res) => {
           console.log(res.data);
           if (res.data.cat == "sucess") {
-            var userInfo = {
+            if (res.data.role) {
+              console.log("admin");
+              var userInfo = {
+                id: res.data.email,
+                name: res.data.name,
+                role: res.data.role,
+              };
+            } else {
+              var userInfo = {
                 id: res.data.email,
                 name: res.data.name,
               };
+            }
             var date = new Date();
             date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
             document.cookie =
@@ -141,12 +149,10 @@ const Auth = (props) => {
               JSON.stringify(userInfo) +
               `; expires=` +
               date.toGMTString();
-              props.setLogin();
-              navigate("/techspardha");
-              // handleState();
+            props.setLogin();
+            navigate("/techspardha",{replace:true});
+            // handleState();
             // alert("Login Successfully");
-            
-            
           } else if (res.data.cat == "invalidpass") {
             alert("Wrong Password ");
           } else {
