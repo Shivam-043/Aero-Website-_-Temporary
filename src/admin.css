@@ -196,7 +196,9 @@ header {
 .nav-img {
   height: 30px;
 }
- 
+ .t-op{
+    width: 150px;
+ }
 .nav-upper-options {
   display: flex;
   flex-direction: column;
@@ -305,9 +307,11 @@ background: var(--black-gradient);
 .item1 {
   width: 1120px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  column-gap: 10px;
+  position: relative;
 }
+
 .t-op {
   font-size: 18px;
   letter-spacing: 0px;
@@ -318,13 +322,21 @@ background: var(--black-gradient);
   margin-top: 15px;
 }
  
-.item1 {
+.item1  {
   margin-top: 20px;
+}
+
+.item1:hover{
+    background-color: #29292b;
+}
+.item1:hover .arrow {
+    visibility:visible;
 }
 .t-op-nextlvl {
   font-size: 14px;
   letter-spacing: 0px;
   font-weight: 600;
+  width: 150px;
 }
  
 .label-tag {
@@ -484,6 +496,16 @@ background: var(--black-gradient);
     .items {
       width: 300px;
     }
+    .item1:hover{
+        background-color: #eb2626;
+    }
+    .arrow{
+        display: none;
+    }
+    .item1:hover .arrow{
+        visibility: visible;
+    }
+    
     .report-body {
       padding: 10px;
     }
