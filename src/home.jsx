@@ -13,6 +13,7 @@ import Auth from "./auth/auth";
 import Logoutcontrol from "./auth/logoutcontrol";
 import { useState, useEffect } from "react";
 import AboutUs from "./components/AboutUs";
+import Admin from "./components/Admin";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);

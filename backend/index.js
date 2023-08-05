@@ -157,7 +157,7 @@ app.post("/registerteam", async(req,res)=>{
 });
 
 // Start the server
-const port = 3001;
+const port = 3000;
 app.listen(port, async() => {
   // console.log(`Server started on port ${port}`);
   // Connect to MongoDB

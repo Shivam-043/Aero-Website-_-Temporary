@@ -6,12 +6,12 @@ const CTA = () => (
     <div className="flex-1 flex flex-col">
       <h2 className={styles.heading2}>Let's Ready to participate in Tech Fest Events</h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis est atque tenetur temporibus architecto sit inventore vel laboriosam.
+        
       </p>
     </div>
-
-    <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-      <Button />
+   
+    <div className="flex justify-end w-full">
+    <Button title={"Know More"} py="py-3" px="px-5" />
     </div>
   </section>
 );

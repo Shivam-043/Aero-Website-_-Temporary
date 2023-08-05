@@ -25,7 +25,8 @@ const Business = () =>  (
         What Our Club Does ?
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui inventore enim atque veniam est, eaque ad recusandae suscipit molestias, ex, dolores assumenda consequatur. Autem tempora temporibus cupiditate corporis ratione?
+      At the Aeromodelling Club of NIT Kurukshetra, we are dedicated to promoting the art of aeromodelling among students. Our mission is to provide a nurturing environment where aviation enthusiasts can gather, learn, and have fun.
+
       </p>
 
       <Button styles={`mt-10`} />
