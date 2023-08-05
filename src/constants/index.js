@@ -90,38 +90,42 @@ export const types = [
     initialName : "Thrilling airborne ",
     lastName: "maneuvers unleashed",
     logo: rcPlane,
-    content: "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. Fusce ipsum orci rhoncus aliporttitor integer plate placerat."
+    content: "Immerse yourself in the captivating realm of RC airplanes, where you can master the art of piloting various types of aircraft. Our club offers a wide array of RC airplanes to cater to every flying enthusiast. Under the guidance of experienced mentors, you'll learn the intricacies of aerodynamics, flight controls, and safety protocols. Our club fosters a supportive environment where both novices and experienced pilots can enhance their skills and share the joy of flight."
   },
   {
     id: "RC Hover",
     initialName : "Smooth glides",
     lastName: "water adventures",
     logo: hovercraft,
-    content: "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. Fusce ipsum orci rhoncus aliporttitor integer plate placerat."
+    content: "Prepare for a thrilling adventure as you experience the wonders of maneuvering hovercraft over land and water. Our club provides a unique opportunity to delve into the engineering marvels that power these versatile machines. Learn about the principles of hovercraft lift and propulsion, and develop the skills to navigate over various terrains with finesse and precision. Our experienced members will guide you in mastering the art of controlling these fascinating vehicles and you'll have the chance to experience them all."
   },
 ]
+// 1.Workshops and Training: 
 
+// 2.Competitions and Events: 
+
+// 3.: 
 export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Knowledge",
+    title: "Workshops and Training",
     content:
-      "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. ",
+      "We conduct regular workshops and training sessions to teach the fundamentals of aeromodelling, from basic principles to advanced techniques.",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "Exposer",
+    title: "Competitions and Events",
     content:
-      "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. ",
+      "Participate in exhilarating competitions and events that challenge your flying skills and creativity. From aerobatics to precision flying, there's something for everyone. ",
   },
   {
     id: "feature-3",
     icon: send,
-    title: "Events",
+    title: "Community Building",
     content:
-      "Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque.",
+      "Join a vibrant community of like-minded individuals who share a passion for aviation. Collaborate, share knowledge, and inspire each other to reach new heights.",
   },
 ];
 
@@ -249,7 +253,7 @@ export const footerLinks = [
       },
       {
         name: "Suggestions",
-        link: "https://www.hoobank.com/suggestions/",
+        link: "suggestions",
       },
       {
         name: "Blog",

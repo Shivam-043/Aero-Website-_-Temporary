@@ -9,8 +9,8 @@ const CardDeal = () => (
       Aerial precision<br className="sm:block hidden" />captivating perspectives
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Arcu tortor, purus in mattis at sed integer faucibus. Aliquet quis
-        aliquet eget mauris tortor.ç Aliquet ultrices ac, ametau.
+      Embrace the cutting-edge technology of drone flying and explore the limitless possibilities of this rapidly evolving field. At our club, you'll have the opportunity to immerse yourself in the world of drones, from entry-level quadcopters to advanced multi-rotor systems. Learn the principles of flight control, navigation, and aerial photography. Our experienced instructors will guide you through the intricacies of drone operation, safety measures, and the legal aspects of flying.
+
       </p>
 
       <Button styles={`mt-10`} />

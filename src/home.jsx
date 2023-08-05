@@ -13,7 +13,7 @@ import Auth from "./auth/auth";
 import Logoutcontrol from "./auth/logoutcontrol";
 import { useState, useEffect } from "react";
 import AboutUs from "./components/AboutUs";
-import Admin from "./components/admin/admin";
+import Admin from "./components/Admin";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
@@ -111,7 +111,7 @@ const HomePage = () => {
             }
           /> */}
           <Route path="/api/blogposts/:id" element={<BlogPost />} />
-          {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
+          <Route path='/suggestions' element={<Suggestion />}/>
         </Routes>
       </div>
     </BrowserRouter>

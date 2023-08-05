@@ -28,7 +28,11 @@ const Hero = () => {
           </div>
         </div>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Designing and building the new models, rebuilding of the damaged models, flying the prepared models and ground pilot training to the budding pilots are the routine activities undertaken under the club.
+        {/* Designing and building the new models, rebuilding of the damaged models, flying the prepared models and ground pilot training to the budding pilots are the routine activities undertaken under the club. */}
+        Welcome to the exhilarating world of aeromodelling! At the Aeromodelling Club of NIT Kurukshetra, we are passionate about all things flying. Whether you are a seasoned pilot or a curious beginner, our club provides the perfect platform to explore the fascinating realm of aviation and aerodynamics.
+        Join us on an exciting journey filled with innovation, creativity, and adrenaline-pumping experiences. Let's take flight together!
+
+        
         </p>
       </div>
 
