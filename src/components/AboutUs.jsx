@@ -60,7 +60,7 @@ const AboutUs = () => {
                 {/* <img className="h-[400px] w-[400px] mx-16 my-4 p-8" src={robot} alt="" /> */}
                 <div className="h-auto w-[95] my-4 p-8 place-items-center ">
                     <p className="text-xl py-1 poppins text-center">Aeromodelling is also a great way to learn about the principles of aviation, such as aerodynamics, flight mechanics, and propulsion.</p>
-                    <p className="text-xl py-1 poppins text-center">If you are interested in joining the Aeromodelling Club, please visit our website or contact us at <br />[email protected]</p>
+                    <p className="text-xl py-1 poppins text-center">If you are interested in joining the Aeromodelling Club, please visit our Social Media Handles or contact us at <br />[email protected]</p>
                 </div>
             </div>
 
