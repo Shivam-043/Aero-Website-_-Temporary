@@ -24,9 +24,9 @@ const App = () => (
         <CTA />
         <Footer />
 
-        <Achievements />
-        <SeniorCard />
-        <Suggestion/>
+        {/* <Achievements />
+        <SeniorCard /> */}
+        {/* <Suggestion/> */}
       </div>
     </div>
   </div>
