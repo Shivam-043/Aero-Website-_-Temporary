@@ -121,8 +121,8 @@ const ContactUs = () => {
                             </a>
                         </div>
                         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                            <p className="text-gray-500">E-Mail: aeromodelling@nitkkr.ac.in</p>
-                            <p className="text-gray-500 hidden sm:block">Mob: +918235777578</p>
+                            <p className="text-gray-500">E-Mail: aeronitkkr.club@gmail.com</p>
+                            <p className="text-gray-500 hidden sm:block">Mob: +917830910080</p>
                             <p className="leading-normal my-5 font-bold">AeroModelling Club
                             </p>
                         </div>
@@ -133,8 +133,6 @@ const ContactUs = () => {
 
     <Footer />
     </div>
-    
-    
   );
 };
 

@@ -53,25 +53,25 @@ export const events = [
     content: "lorem ndjndjisdoisosnsnsdfsdns"
   },
   {
-    id: "event-1",
+    id: "event-2",
     title: "Drone BootCamp",
     Date : " 20th - 26th April 2023",
     content: "lorem ndjndjisdoisosnsnsdfsdns"
   },
   {
-    id: "event-1",
+    id: "event-3",
     title: "Drone BootCamp",
     Date : " 20th - 26th April 2023",
     content: "lorem ndjndjisdoisosnsnsdfsdns"
   },
   {
-    id: "event-1",
+    id: "event-4",
     title: "Drone BootCamp",
     Date : " 20th - 26th April 2023",
     content: "lorem ndjndjisdoisosnsnsdfsdns"
   },
   {
-    id: "event-1",
+    id: "event-5",
     title: "Drone BootCamp",
     Date : " 20th - 26th April 2023",
     content: "lorem ndjndjisdoisosnsnsdfsdns"

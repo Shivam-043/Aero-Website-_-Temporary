@@ -1,10 +1,7 @@
 import React , {useState , useEffect} from "react";
 import axios from "axios";
 import styles from "../style";
-import Testimonials from "./Testimonials";
-import { feedback } from "../constants";
-import FeedbackCard from "./FeedbackCard";
-import EventsCard from "./EventsCard";
+
 import PostCard from "../Blog/PostCard";
 import Footer from "./Footer";
 
@@ -13,7 +10,7 @@ const Blogs = () => {
 
   useEffect(() => {
     // Fetch blog posts from the server
-    axios.get('http://localhost:3001/api/blogposts')
+    axios.get('http://localhost:3000/api/blogposts')
       .then(response => {
         setBlogPosts(response.data);
         

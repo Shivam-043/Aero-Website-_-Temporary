@@ -34,6 +34,21 @@ const Navbar = (isLogin) => {
             </li>
           </Link>
         ))}
+
+        <Link to={`admin`}>
+            <li
+              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+                active === "Admin" ? "text-white" : "text-dimWhite"
+              // } ${index == 7 ? "mr-0" : "mr-10"}`}
+              } "mr-0"`}
+              onClick={() => {
+                setActive("Admin");
+              }}
+            >
+              {"Admin"}
+            </li>
+          </Link>
+
         
       </ul>
 
