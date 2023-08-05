@@ -2,6 +2,7 @@ import styles from "../style";
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from ".";
 import Achievements from "./achievements";
 import SeniorCard from "./seniorCard";
+import Suggestion from "./Suggestion";
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -23,8 +24,9 @@ const App = () => (
         <CTA />
         <Footer />
 
-        <Achievements />
-        <SeniorCard />
+        {/* <Achievements />
+        <SeniorCard /> */}
+        {/* <Suggestion/> */}
       </div>
     </div>
   </div>

@@ -101,7 +101,7 @@ const HomePage = () => {
             }
           />
           <Route path="/api/blogposts/:id" element={<BlogPost />} />
-          {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
+          <Route path='/suggestions' element={<Suggestion />}/>
         </Routes>
       </div>
     </BrowserRouter>

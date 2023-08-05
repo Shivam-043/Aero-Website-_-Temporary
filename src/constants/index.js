@@ -253,7 +253,7 @@ export const footerLinks = [
       },
       {
         name: "Suggestions",
-        link: "https://www.hoobank.com/suggestions/",
+        link: "suggestions",
       },
       {
         name: "Blog",
