@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { techspardhabg, techspardhabg2, techspardhaimg } from '../assets'
 import styles from '../style'
 import Button from './Button'
@@ -12,6 +12,13 @@ import Popup from './Techspardha/PopUp'
 
 
 const TechSpardha = () => {
+
+    const [events , setEvents] = useState(null);
+
+    const handleState =(events) =>{
+        setEvents(events);
+        console.log(events)
+    }
     return (
         <div>
             <div className={`bg-primary w-full flex flex-row place-content-evenly`}>
@@ -45,11 +52,11 @@ const TechSpardha = () => {
 
 
             </div>
-            <div className='bg-primary flex flex-row m-8 xs1:flex-col xs1:m-5 xs1:items-center ' >{registerCard.map((data) => <RegisterCard key={data.id} {...data} />)}</div>
+            <div className='bg-primary flex flex-row m-8 xs1:flex-col xs1:m-5 xs1:items-center ' >{registerCard.map((data) => <RegisterCard key={data.id} data= {data} onHandleClick={handleState}/>)}</div>
             <div>
                 <Faqs />
             </div>
-            <Popup />
+            <Popup {...events}/>
             <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
 
                 <div className={`${styles.boxWidth}`}>

@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import Popup from "./Techspardha/PopUp";
-const RegisterCard = (props) => {
-    const [popup , setPopup] = useState(null);
-
-    const handlePopupClick = (post) =>{
-        setPopup(post);
-    }
+const RegisterCard = ({data , onHandleClick}) => {
   return (
     // <div className='flex flex-row item-center justify-center m'>
     <div className="w-[90%] flex-row items-center m-8 xs1:m-5 xs1:w-[98%]">
@@ -13,10 +7,10 @@ const RegisterCard = (props) => {
         <div className="col-md-4 col-sm-6 col-xs-12">
           <div className="card">
             <div className="cover item-a">
-              <h1>{props.title}</h1>
+              <h1>{data.title}</h1>
               <span className="price">$79</span>
               <div className="card-back">
-                <a className="link" href="#popup">
+                <a className="link" href="#popup" onClick={() => onHandleClick(data)}> 
                   Register
                 </a>
                 <a href="#">View detail</a>
@@ -25,7 +19,7 @@ const RegisterCard = (props) => {
           </div>
         </div>
       </div>
-      <Popup title= {props.title}/>
+      {/* <Popup title= {props.title}/> */}
     </div>
   );
 };
