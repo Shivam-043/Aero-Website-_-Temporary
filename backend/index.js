@@ -109,6 +109,21 @@ app.post("/signup", async (req, res) => {
     // The user does not exist
   }
 });
+
+
+
+app.post("/teamFormDetails", async(req,res)=>{
+  // const users=team.
+  // fetching whole schema team from Mongodb
+  try {
+    const teams = await Team.find();
+    res.send(teams);
+  } catch (error) {
+    console.error("Error fetching Team details:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.post("/login", async (req, res) => {
   try {
     // const User = mongoose.model("User");
@@ -119,7 +134,7 @@ app.post("/login", async (req, res) => {
       // The user exists
       if (user.password == req.body.password) {
         // console.log("userExist");
-
+        
         res.send({ cat: "sucess", name: user.name, email: user.email });
       } else {
         res.send({cat:"invalidpass"});
@@ -157,7 +172,7 @@ app.post("/registerteam", async(req,res)=>{
 });
 
 // Start the server
-const port = 3001;
+const port = 3000;
 app.listen(port, async() => {
   // console.log(`Server started on port ${port}`);
   // Connect to MongoDB

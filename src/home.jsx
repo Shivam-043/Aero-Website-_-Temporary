@@ -13,19 +13,25 @@ import Auth from "./auth/auth";
 import Logoutcontrol from "./auth/logoutcontrol";
 import { useState, useEffect } from "react";
 import AboutUs from "./components/AboutUs";
+import Admin from "./components/admin/admin";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
+  const [isadmin,setisAdmin] =useState(0);
+  const [user,setUser] = useState("");
+  // var user="jay ";
   // checkCookie();
   function setStateisLogin(val) {
     setisLogin(val);
   }
+  
   useEffect(() => {
     checkCookie();
   }, []);
   function checkCookie () {
     console.log("check cookie runnig");
-    var user = accessCookie("user");
+    setUser ( accessCookie("user"));
+    console.log(user);
     if (user !== "") {
       console.log("cookie found");
       setisLogin(1);
@@ -71,6 +77,7 @@ const HomePage = () => {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
+          <Route path="/admin" element={<Admin user={user}/>}/>
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
           <Route
             path="/drone"
