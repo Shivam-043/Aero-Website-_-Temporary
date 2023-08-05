@@ -580,3 +580,6 @@ animation: textShine 5s ease-in-out infinite alternate;
   color: black;
 }
 
+.bg_suggest{
+  background-image: url(https://static.vecteezy.com/system/resources/previews/003/782/532/non_2x/black-abstract-background-composed-of-squares-modern-technology-dark-design-geometric-illustration-metal-mesh-texture-vector.jpg);
+}

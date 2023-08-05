@@ -14,6 +14,7 @@ import Logoutcontrol from "./auth/logoutcontrol";
 import { useState, useEffect } from "react";
 import AboutUs from "./components/AboutUs";
 import Admin from "./components/admin/admin";
+import Suggestion from "./components/Suggestion";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
@@ -101,7 +102,7 @@ const HomePage = () => {
             }
           />
           <Route path="/api/blogposts/:id" element={<BlogPost />} />
-          {/* <Route path='/hover' element={<HoverCanvas/>}/> */}
+          <Route path='/suggestions' element={<Suggestion />}/>
         </Routes>
       </div>
     </BrowserRouter>
