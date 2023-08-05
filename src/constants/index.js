@@ -14,8 +14,8 @@ export const navLinks = [
     title: "Events",
   },
   {
-    id: "drone",
-    title: "Drone",
+    id: "aboutus",
+    title: "AboutUs",
   },
   {
     id: "techspardha",

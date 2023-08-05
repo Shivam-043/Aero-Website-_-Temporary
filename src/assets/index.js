@@ -31,6 +31,8 @@ import hovercraft from "./hovercraft.png";
 import techspardhabg from "./techspardhabg.png";
 import techspardhaimg from "./techspardhaimg.jpg";
 import techspardhabg2 from "./techspardhabg2.jpg";
+import planeframe from "./planeframe.png";
+import droneframe from "./dronesplash.png";
 
 export {
   airbnb,
@@ -66,5 +68,6 @@ export {
   techspardhaimg,
   techspardhabg,
   techspardhabg2,
-  
+  planeframe,
+  droneframe
 };
