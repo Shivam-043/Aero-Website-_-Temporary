@@ -68,36 +68,18 @@ export const events = [
     id: "event-1",
     title: "Drone BootCamp",
     Date: " 20th - 26th April 2023",
-    content: "lorem ndjndjisdoisosnsnsdfsdns",
+    content: "A week long BootCamp on 'Drone Technologies and its Applications' was smoothly conducted under the 'Capacity Building for Human Resourcees Development in Drones and Related technologies' project by MeitY (Ministry of Electronics and Information Technologies). \n Sessions on Flight Dynamics , controller board with hands-on experience in drone building are key highlights . \n Guest Lectures on Digital Image Processing and Survey was also Delivered by Dr. Mahesh Pal , Proff. Dept of Civil Engineering ",
   },
   {
     id: "event-2",
-    title: "Drone BootCamp",
-    Date: " 20th - 26th April 2023",
+    title: "Aerovics 2.0",
+    Date: " 21th - 22th January 2023",
     content: "lorem ndjndjisdoisosnsnsdfsdns",
   },
   {
     id: "event-3",
-    title: "Drone BootCamp",
-    Date: " 20th - 26th April 2023",
-    content: "lorem ndjndjisdoisosnsnsdfsdns",
-  },
-  {
-    id: "event-4",
-    title: "Drone BootCamp",
-    Date: " 20th - 26th April 2023",
-    content: "lorem ndjndjisdoisosnsnsdfsdns",
-  },
-  {
-    id: "event-5",
-    title: "Drone BootCamp",
-    Date: " 20th - 26th April 2023",
-    content: "lorem ndjndjisdoisosnsnsdfsdns",
-  },
-  {
-    id: "event-1",
-    title: "Drone BootCamp",
-    Date: " 20th - 26th April 2023",
+    title: "Aerovics 1.0",
+    Date: " 3rd - 4th September 2022",
     content: "lorem ndjndjisdoisosnsnsdfsdns",
   },
 ];
@@ -105,7 +87,7 @@ export const events = [
 export const types = [
   {
     id: "RC Plane",
-    initialName: "Thrilling airborne ",
+    initialName: "Thrilling airborne ", 
     lastName: "maneuvers unleashed",
     logo: rcPlane,
     content:
@@ -240,23 +222,23 @@ export const footerLinks = [
     links: [
       {
         name: "RC Planes",
-        link: "https://www.hoobank.com/content/",
+        link: "#",
       },
       {
         name: "RC HoverCraft",
-        link: "https://www.hoobank.com/how-it-works/",
+        link: "#",
       },
       {
         name: "Create",
-        link: "https://www.hoobank.com/create/",
+        link: "#",
       },
       {
         name: "Explore",
-        link: "https://www.hoobank.com/explore/",
+        link: "#",
       },
       {
         name: "Terms & Services",
-        link: "https://www.hoobank.com/terms-and-services/",
+        link: "#",
       },
     ],
   },
@@ -269,19 +251,19 @@ export const footerLinks = [
       },
       {
         name: "Partners",
-        link: "https://www.hoobank.com/partners/",
+        link: "#",
       },
       {
         name: "Suggestions",
-        link: "https://www.hoobank.com/suggestions/",
+        link: "#",
       },
       {
         name: "Blog",
-        link: "https://www.hoobank.com/blog/",
+        link: "#",
       },
       {
         name: "Newsletters",
-        link: "https://www.hoobank.com/newsletters/",
+        link: "#",
       },
     ],
   },
@@ -290,11 +272,11 @@ export const footerLinks = [
     links: [
       {
         name: "Our Partner",
-        link: "https://www.hoobank.com/our-partner/",
+        link: "#",
       },
       {
         name: "Become a Partner",
-        link: "https://www.hoobank.com/become-a-partner/",
+        link: "#",
       },
     ],
   },

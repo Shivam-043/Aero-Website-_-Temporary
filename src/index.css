@@ -642,22 +642,22 @@ animation: textShine 5s ease-in-out infinite alternate;
           clip-path: ellipse(60% 80px at top center);
 }
 .seniorCard-hover__title {
-  font-size: 1.5rem;
+  font-size: 30px;
+  font-weight: bold;
   margin-bottom: 1em;
-}
-.seniorCard-hover__title span {
-  color: #2d7f0b;
+  color: black;
 }
 .seniorCard-hover__text {
   font-size: 0.75rem;
 }
 .seniorCard-hover__link {
   position: absolute;
-  bottom: 1rem;
+  /* bottom: 1rem;   */
   left: 50%;
   transform: translate(-50%, 10%);
   display: flex;
-  flex-wrap: wrap;
+
+  /* flex-wrap: wrap; */
   align-items: center;
   text-decoration: none;
   color: #2d7f0b;
@@ -669,8 +669,8 @@ animation: textShine 5s ease-in-out infinite alternate;
   transform: translateX(4px);
 }
 .seniorCard-hover__link svg {
-  width: 18px;
-  margin-left: 4px;
+  /* width: 18px; */
+  /* margin-left: 4px; */
   transition: transform 0.3s;
 }
 .seniorCard-hover__extra {
@@ -705,7 +705,7 @@ animation: textShine 5s ease-in-out infinite alternate;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  z-index: -1;
+  /* z-index: -1; */
   transform: scale(1.2);
   transition: 0.35s 0.35s transform cubic-bezier(0.1, 0.72, 0.4, 0.97);
 }
