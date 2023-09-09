@@ -21,7 +21,8 @@ const Blogs = () => {
   return (
     <div className={`bg-primary w-full overflow-hidden items-center px-5`}>
         <h1 className={`${styles.heading2} ${styles.paddingX}`}>
-            AeroModelling BlogPost
+            AeroModelling BlogPost  <br/>
+            coming soon ......
         </h1>
       <div
         className={`${styles.boxWidth}  ${styles.paddingX} ${styles.flexCenter}`}
