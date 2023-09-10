@@ -1,7 +1,5 @@
 import styles from "../style";
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from ".";
-import Achievements from "./achievements";
-// import SeniorCard from "./seniorCard";
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">

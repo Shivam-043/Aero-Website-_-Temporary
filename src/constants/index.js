@@ -44,6 +44,36 @@ export const navLinks = [
     title: "Login",
   },
 ];
+export const navLinksAdmin = [
+  {
+    id: "",
+    title: "Home",
+  },
+  {
+    id: "blogs",
+    title: "Blogs",
+  },
+  {
+    id: "events",
+    title: "Events",
+  },
+  {
+    id: "aboutus",
+    title: "AboutUs",
+  },
+  {
+    id: "techspardha",
+    title: "TechSpardha",
+  },
+  {
+    id: "authenticate",
+    title: "Login",
+  },
+  {
+    id: "admin",
+    title: "Admin",
+  },
+];
 
 export const registerCard = [
   {

@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 import { close, aeroLogo, menu } from "../assets";
-import { navLinks } from "../constants";
+import { navLinks,navLinksAdmin } from "../constants";
 import { Link } from "react-router-dom";
-const Navbar = (isLogin) => {
+const Navbar = (props) => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
+  console.log("isadmin"+props.isadmin);
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
@@ -19,7 +20,7 @@ const Navbar = (isLogin) => {
       </h3>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((nav, index) => (
+        {(!props.isadmin)?navLinks.map((nav, index) => (
           <Link to={`/${nav.id}`}>
             <li
               key={nav.id}
@@ -29,25 +30,33 @@ const Navbar = (isLogin) => {
               onClick={() => {
                 setActive(nav.title);
               }}
+              
+
             >
               {nav.title}
             </li>
           </Link>
-        ))}
-
-        <Link to={`admin`}>
+        )):
+        navLinksAdmin.map((nav, index) => (
+          <Link to={`/${nav.id}`}>
             <li
+              key={nav.id}
               className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === "Admin" ? "text-white" : "text-dimWhite"
-              // } ${index == 7 ? "mr-0" : "mr-10"}`}
-              } "mr-0"`}
+                active === nav.title ? "text-white" : "text-dimWhite"
+              } ${index === navLinksAdmin.length - 1 ? "mr-0" : "mr-10"}`}
               onClick={() => {
-                setActive("Admin");
+                setActive(nav.title);
               }}
+              
+
             >
-              {"Admin"}
+              {nav.title}
             </li>
           </Link>
+        ))
+      }
+
+        
 
         
       </ul>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
+import "./fonts.css";
 import axios from "axios";
 import server from "./apple";
 
@@ -162,7 +163,6 @@ const Auth = (props) => {
   return (
     <div>
       {/* This is the auth page. Please log in or sign up to access this content! */}
-
       <div className="section">
         <div className="container">
           <div className="row full-height justify-content-center">

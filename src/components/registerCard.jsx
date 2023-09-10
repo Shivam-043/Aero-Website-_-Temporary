@@ -13,7 +13,7 @@ const RegisterCard = ({data , onHandleClick}) => {
               <div className="card-back">
               <Link to={`/register/${data.title}`}>
                   Register
-                </Link>
+              </Link>
                 <a className="link"  href="#popup" onClick={() => onHandleClick(data)}>View detail</a>
               </div>
             </div>

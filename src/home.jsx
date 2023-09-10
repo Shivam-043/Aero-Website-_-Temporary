@@ -20,7 +20,7 @@ import Teams from "./Teams/Teams";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
-  const [isadmin, setisAdmin] = useState(0);
+  const [isadmin, setisAdmin] = useState(false);
   const [user, setUser] = useState("");
   // var user="jay ";
   // checkCookie();
@@ -69,7 +69,7 @@ const HomePage = () => {
       <div className="bg-primary w-full overflow-hidden">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
-            <Navbar isLogin={islogin} />
+            <Navbar isLogin={islogin} isadmin={isadmin} setisAdmin={setisAdmin}/>
           </div>
         </div>
 
