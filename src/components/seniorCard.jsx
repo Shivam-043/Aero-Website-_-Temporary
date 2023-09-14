@@ -9,7 +9,7 @@ const SeniorCard = (props) => {
         <div className="absolute -mt-20 flex w-full justify-center">
           <div className="h-32 w-28">
             <img
-              src="https://media.licdn.com/dms/image/C5603AQFsMgog1Iv47Q/profile-displayphoto-shrink_800_800/0/1657805237551?e=1698278400&v=beta&t=RYIuturlDt3VydR2Mxn_b-mkIphw1toUUwmy2eAgXRY"
+              src={props.url}
               alt=""
               className="rounded-lg object-fit h-full w-full shadow-md"
             />

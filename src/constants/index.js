@@ -382,24 +382,39 @@ export const team = [
     teamName: "Final Year",
     memberDetail: [
       {
-        name: "Atul Bisth",
+        name: "Atul Bisht",
         designation: "President",
+        url: "https://drive.google.com/uc?export=view&id=1XTa5CfZYvwdQvCn3Nq8kv5G5mPIMqp5m"
       },
       {
-        name: "Atul Bisth2",
-        designation: "President",
+        name: "Himanshu Dudi",
+        designation: "Vice President",
+        url: "https://drive.google.com/uc?export=view&id=1isboSZYoD0pEq8XiIoagFkubUdpJyk3X"
       },
       {
-        name: "Atul Bisth3",
-        designation: "President",
+        name: "Tanuj",
+        designation: "Secretary",
+        url: "https://drive.google.com/uc?export=view&id=10JhPRRTfOdC2_2E5l0vetkpPDrlMf-z3"
       },
       {
-        name: "Atul Bisth4",
-        designation: "President",
+        name: "Sharvani",
+        designation: "Joint Secretary",
+        url: "https://drive.google.com/uc?export=view&id=1XFNleU1LGOhtnoYqR4K1xreyKjF2WZWq"
       },
       {
-        name: "Atul Bisth5",
-        designation: "President",
+        name: "Khushi",
+        designation: "Additional Secretary",
+        url: "https://drive.google.com/uc?export=view&id=1HRRqSaQKTPZlvHSwV8U_QqFCBO56jf5n"
+      },
+      {
+        name: "Priyanshu Gaur",
+        designation: "Member",
+        url: ""
+      },
+      {
+        name: "Shubham Kaushik",
+        designation: "Member",
+        url: "https://drive.google.com/uc?export=view&id=1oy8WGRVlmmIwD2SlUMqSIQRZpO7nQhN-"
       },
     ],
   },
@@ -407,25 +422,82 @@ export const team = [
     teamName: "Pre Final Year",
     memberDetail: [
       {
-        name: "Atul Bisth",
-        designation: "President",
+        name: "Shivam Krishan Varshney",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1LizQj3KTqb6-ZB7ua4E241DStJV5UkeO",
       },
       {
-        name: "Atul Bisth2",
-        designation: "President",
+        name: "Govind Ji",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=14cM9iRXHf4gQVgYlrMeFgZruheLu2nGG",
       },
       {
-        name: "Atul Bisth3",
-        designation: "President",
+        name: "Ayush Singh",
+        designation: "Member",
+        url : "",
       },
       {
-        name: "Atul Bisth4",
-        designation: "President",
+        name: "Sachin Lappu",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1hkuB33IV9_yHaE05dTZ9yDcg7dTr-Fxu",
       },
       {
-        name: "Atul Bisth5",
-        designation: "President",
+        name: "Abhimanyu Mittal",
+        designation: "Member",
+        url : "",
+      },
+      {
+        name: "Aarti Mor",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1xQC3qUxec9x3e31rguaaU63bs6FxiNZg",
+      },
+      {
+        name: "Leena Dhankhar",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1kAypZSZn6WgH2rPylDZ2hKezPtCayTdk",
+      },
+      {
+        name: "Simran",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1aY0nbJDDaFThKQ4rm2HGNS0sHr3R4quj",
+      },
+      {
+        name: "Ved",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1N_uaLH8LDzbDeQURO7WmrpGdhcAKOwFl",
+      },
+      {
+        name: "Sugam Tripathi",
+        designation: "Member",
+        url : "",
+      },
+      {
+        name: "Rohit Joshi",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1t3-b9aZVlaoMWYOPwlDFfKGat4CjRWAF",
+      },
+      {
+        name: "Jyotiraditya Singh",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1WbVZ4U13dF7BxSjXcugRun_3Raa00kqH",
+      },
+      {
+        name: "Ram",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1sX6lq8gTaljZrQlF-fDRg5K7V4Aoh79U",
+      },
+      {
+        name: "Neeraj",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1_8FKibthhboTvoTxAY3D8rV5oV6qFdmM",
+      },
+      {
+        name: "Varshith Reddy",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1pLVpTd_HEk3FEvQ7WGQG7AtH0pLqM0yX",
       },
     ],
   },
 ];
+
+
