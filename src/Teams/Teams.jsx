@@ -2,6 +2,7 @@ import React from "react";
 // import './teams.css';
 import SeniorCard from "../components/seniorCard";
 import { team } from "../constants/index";
+import Footer from "../components/Footer";
 
 const Teams = () => {
   return (
@@ -42,6 +43,7 @@ const Teams = () => {
           <SeniorCard />
         </div> */}
       </div>
+      <Footer/>
     </>
   );
 };

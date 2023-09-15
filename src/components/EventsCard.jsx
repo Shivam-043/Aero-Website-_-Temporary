@@ -6,7 +6,7 @@ import { Link} from 'react-router-dom';
 
 const EventsCard = ({post, onPostClick}) => {
   return (
-    <div className={`box-border xs1:h-[62vh] xs1:w-[90vw] h-[65vh] w-[25vw] p-4 rounded-3xl event-card xs1:justify-center ${styles.paddingY}`} >
+    <div className={`box-border xs1:h-[62vh] xs1:w-[90vw] h-[65vh] w-[25vw] p-4 rounded-3xl display: inline-table event-card xs1:justify-center ${styles.paddingY}`} >
       <div className={`justify-center flex`}>
         <img src={rcPlane} alt="" className='w-[40%] h-[50%] xs1:w-[75%]'/>
       </div>
