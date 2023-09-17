@@ -422,29 +422,14 @@ export const team = [
     teamName: "Pre Final Year",
     memberDetail: [
       {
-        name: "Shivam Krishan Varshney",
-        designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1LizQj3KTqb6-ZB7ua4E241DStJV5UkeO",
-      },
-      {
-        name: "Govind Ji",
-        designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=14cM9iRXHf4gQVgYlrMeFgZruheLu2nGG",
-      },
-      {
-        name: "Ayush Singh",
-        designation: "Member",
-        url : "",
-      },
-      {
-        name: "Sachin Lappu",
-        designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1hkuB33IV9_yHaE05dTZ9yDcg7dTr-Fxu",
-      },
-      {
         name: "Abhimanyu Mittal",
         designation: "Member",
         url : "",
+      },
+      {
+        name: "Sachin",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1hkuB33IV9_yHaE05dTZ9yDcg7dTr-Fxu",
       },
       {
         name: "Aarti Mor",
@@ -495,6 +480,26 @@ export const team = [
         name: "Varshith Reddy",
         designation: "Member",
         url : "https://drive.google.com/uc?export=view&id=1pLVpTd_HEk3FEvQ7WGQG7AtH0pLqM0yX",
+      },
+    ],
+  },
+  {
+    teamName: "Pre Final Year",
+    memberDetail: [
+      {
+        name: "Shivam Krishan Varshney",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=1LizQj3KTqb6-ZB7ua4E241DStJV5UkeO",
+      },
+      {
+        name: "Govind Ji",
+        designation: "Member",
+        url : "https://drive.google.com/uc?export=view&id=14cM9iRXHf4gQVgYlrMeFgZruheLu2nGG",
+      },
+      {
+        name: "Ayush Singh",
+        designation: "Member",
+        url : "",
       },
     ],
   },

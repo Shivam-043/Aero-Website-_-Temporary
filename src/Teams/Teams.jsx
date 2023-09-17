@@ -11,7 +11,7 @@ const Teams = () => {
           <div key={team.teamName} className={`flex-col ss:my-0 my-4`}>
             <div className="container flex justify-center mx-auto pt-16">
               <div>
-                <p className="text-white text-lg text-center font-normal pb-3">
+                <p className="text-white text-[40px] text-center font-normal pb-3">
                   {team.teamName}
                 </p>
                 <h1 className="xl:text-4xl text-3xl text-center text-white font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">

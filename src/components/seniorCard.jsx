@@ -11,7 +11,7 @@ const SeniorCard = (props) => {
             <img
               src={props.url}
               alt=""
-              className="rounded-lg object-fit h-full w-full shadow-md"
+              className="rounded-lg object-cover h-full w-full shadow-md"
             />
           </div>
         </div>
