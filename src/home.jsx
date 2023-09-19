@@ -17,6 +17,7 @@ import Admin from "./components/Admin";
 import TeamSignup from "./components/registerForm/TeamSignup";
 import Signup from "./components/registerForm/Signup";
 import Teams from "./Teams/Teams";
+import Partners from "./components/Partners/partners";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
@@ -82,6 +83,7 @@ const HomePage = () => {
           <Route path="/techspardha" element={<TechSpardha />} />
           <Route path="/admin" element={<Admin user={user} />} />
           <Route path="/team" element={<Teams />} />
+          <Route path="/partners" element={<Partners />} />
           {/* <Route path='/drone' element={<BlogTemp />}/> */}
           <Route
             path="/drone"

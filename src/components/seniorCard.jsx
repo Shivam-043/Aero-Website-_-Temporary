@@ -1,6 +1,7 @@
 import React from "react";
 import Instagram from "../assets/Vectors/Instagram";
 import LinkedIn from "../assets/Vectors/LinkedIn";
+import LazyLoad from 'react-lazy-load';
 
 const SeniorCard = (props) => {
   return (
@@ -8,17 +9,22 @@ const SeniorCard = (props) => {
       <div className="rounded overflow-hidden shadow-md bg-white">
         <div className="absolute -mt-20 flex w-full justify-center">
           <div className="h-32 w-28">
-            <img
-              src={props.url}
-              alt=""
-              className="rounded-lg object-cover h-full w-full shadow-md"
-            />
+            <LazyLoad height={140} offset={300}>
+              <img
+                loading="lazy"
+                src={props.url}
+                alt=""
+                className="rounded-lg object-cover h-full w-full shadow-md"
+              />
+            </LazyLoad>
           </div>
         </div>
       </div>
       <div className="px-6 mt-16">
         <div className="font-bold text-3xl text-center pb-1">{props.name}</div>
-        <p className="text-gray-600 text-base text-center">{props.designation}</p>
+        <p className="text-gray-600 text-base text-center">
+          {props.designation}
+        </p>
         {/* <p className="text-center text-gray-800 text-sm pt-3 font-normal">Phone</p> */}
         <div className="w-full flex justify-center pt-5 pb-5">
           <a target={"_blank"} href={props.linkedin} className="mx-5">

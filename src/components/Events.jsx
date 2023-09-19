@@ -3,6 +3,7 @@ import EventsContent from './EventContent'
 import EventsCard from './EventsCard'
 import {events} from "../constants/index.js"
 import { useParams } from 'react-router-dom';
+import Footer from './Footer';
 
 
 const Events = () => {
@@ -40,6 +41,7 @@ const Events = () => {
   };
 
   return (
+    <>
     <div className={`bg-primary w-full overflow-hidden items-center flex`}>
         <div className={`justify-center flex w-[75vw] ${selectedPost ? "xs1:flex": "xs1:hidden" } xs1:w-[100vw] `}>
           {selectedPost ? (
@@ -58,6 +60,9 @@ const Events = () => {
           <EventsCard /> */}
         </div>
     </div>
+    <Footer/>
+    </>
+
   )
 }
 
