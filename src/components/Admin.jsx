@@ -41,7 +41,7 @@ const toggleItem=(id)=>{
           />
         </div>
 
-        <div className="message">
+        {/* <div className="message">
           <div className="circle"></div>
           <img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
@@ -55,7 +55,7 @@ const toggleItem=(id)=>{
               alt="dp"
             />
           </div>
-        </div>
+        </div> */}
       </header>
 
       <div className="main-container">

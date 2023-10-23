@@ -28,32 +28,33 @@ const HomePage = () => {
   useEffect(() => {
     checkCookie();
   }, []);
-  async function checkCookie () {
-    console.log("check cookie runnig");
-    var usr=accessCookie("user");
-    console.log(user);
-    if (usr !== "") {
-      setUser ( JSON.parse(usr));
-      if(usr.role=='admin'){
-        console.log("he is admin");
+
+  useEffect(() => {
+    return () => {
+      if(user.role=='admin'){
         setisAdmin(true);
       }
+    };
+  }, [user]);
+
+  async function checkCookie () {
+    console.log("check cookie runnig");
+    var usr=await accessCookie("user");
+    if (usr !== "") {
+      setUser ( JSON.parse(usr));
       console.log("cookie found");
       setisLogin(1);
-      // document.getElementsByClassName("navvalues")[5].innerHTML = "logout";
     } else {
       console.log("Not Found");
       setisLogin(0);
-      // document.getElementsByClassName("navvalues")[5].innerHTML = "login";
     }
-    //delete cookie
-    // document.cookie = "user=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
   }
   
 
-  function accessCookie(cname) {
+  async function accessCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
+    // console.log(decodedCookie);
     let ca = decodedCookie.split(";");
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
@@ -111,7 +112,7 @@ const HomePage = () => {
             }
           /> */}
           <Route path="/api/blogposts/:id" element={<BlogPost />} />
-          <Route path='/suggestions' element={<Suggestion />}/>
+          {/* <Route path='/suggestions' element={<Suggestion />}/> */}
         </Routes>
       </div>
     </BrowserRouter>

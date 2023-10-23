@@ -19,73 +19,63 @@ const Navbar = (props) => {
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
-          <Link to={`/${nav.id}`}>
-            <li
-              key={nav.id}
-              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === nav.title ? "text-white" : "text-dimWhite"
+          <li
+            key={nav.id}
+            className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+              active === nav.title ? "text-white" : "text-dimWhite"
               // } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-              } ${ "mr-10"}`}
-              onClick={() => {
-                setActive(nav.title);
-              }}
-            >
-              {nav.title}
-            </li>
-          </Link>
+            } ${"mr-10"}`}
+            onClick={() => {
+              setActive(nav.title);
+            }}
+          >
+            <Link to={`/${nav.id}`}>{nav.title}</Link>
+          </li>
         ))}
-          
-       {(!props.isLogin)? <Link to={`login`}>
-            <li
-            key={'login'}
-              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === "Login" ? "text-white" : "text-dimWhite"
-              // } ${index == 7 ? "mr-0" : "mr-10"}`}
-              } "mr-0"`}
-              onClick={() => {
-                setActive("Login");
-              }}
-            >
-              {"Login"}
-            </li>
-          </Link>
-:
-    <Link to={`logout`}>
-            <li
-              key={'logout'}
-              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === "Logout" ? "text-white" : "text-dimWhite"
-              // } ${index == 7 ? "mr-0" : "mr-10"}`}
-              } "mr-0"`}
-              onClick={() => {
-                setActive("Logout");
-              }}
-            >
-              {"Logout"}
-            </li>
-          </Link>
-       
-       }
-       {
-       (props.isadmin)?<Link to={`admin`}>
-            <li
-            key={'admin'}
-              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === "Admin" ? "text-white" : "text-dimWhite"
-              // } ${index == 7 ? "mr-0" : "mr-10"}`}
-              } "mr-0"`}
-              onClick={() => {
-                setActive("Admin");
-              }}
-            >
-              {"Admin"}
-            </li>
-          </Link>
-          :
-          <span/>}
-        
 
-        
+        {!props.isLogin ? (
+          <li
+            key={"login"}
+            className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+              active === "Login" ? "text-white" : "text-dimWhite"
+              // } ${index == 7 ? "mr-0" : "mr-10"}`}
+            } "mr-0"`}
+            onClick={() => {
+              setActive("Login");
+            }}
+          >
+            <Link to={`login`}>{"Login"}</Link>
+          </li>
+        ) : (
+          <li
+            key={"logout"}
+            className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+              active === "Logout" ? "text-white" : "text-dimWhite"
+              // } ${index == 7 ? "mr-0" : "mr-10"}`}
+            } "mr-0"`}
+            onClick={() => {
+              setActive("Logout");
+            }}
+          >
+            <Link to={`logout`}>{"Logout"}</Link>
+          </li>
+        )}
+        {props.isadmin ? (
+          <li
+            key={"admin"}
+            className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+              active === "Admin" ? "text-white" : "text-dimWhite"
+              // } ${index == 7 ? "mr-0" : "mr-10"}`}
+            } "mr-0"`}
+            onClick={() => {
+              setActive("Admin");
+            }}
+          >
+            <Link to={`admin`}>{"Admin"}</Link>
+          </li>
+        ) : (
+          <span />
+        )}
       </ul>
 
       <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -114,7 +104,7 @@ const Navbar = (props) => {
                 }}
               >
                 <Link to={`/${nav.id}`}>
-                  <li>{nav.title}</li>
+                  {nav.title}
                 </Link>
               </li>
             ))}

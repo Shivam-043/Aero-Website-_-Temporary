@@ -2,7 +2,7 @@ import { people01, people02, people03, facebook, instagram, linkedin, twitter, a
 
 export const navLinks = [
   {
-    id: "",
+    id: " ",
     title: "Home",
   },
   {
@@ -219,11 +219,11 @@ export const footerLinks = [
     title: "Useful Links",
     links: [
       {
-        name: "RC Planes",
+        name: "Planes",
         link: "https://www.hoobank.com/content/",
       },
       {
-        name: "RC HoverCraft",
+        name: "HoverCraft",
         link: "https://www.hoobank.com/how-it-works/",
       },
       {

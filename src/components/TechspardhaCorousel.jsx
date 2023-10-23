@@ -23,7 +23,7 @@ const TechspardhaCarousel = () => {
           <div className="relative top-0 left-0 w-full h-full">
             {images.map((image, index) => (
               <img
-                key={index}
+              key={`${index}`}
                 src={image}
                 alt={`Slider Image ${index}`}
                 className={`w-[100vw] h-[80vh] object-cover transition-opacity rounded-xl ${
