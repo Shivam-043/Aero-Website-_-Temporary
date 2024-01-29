@@ -14,6 +14,7 @@ import Logoutcontrol from "./auth/logoutcontrol";
 import { useState, useEffect } from "react";
 import AboutUs from "./components/AboutUs";
 import Admin from "./components/Admin";
+import DroneCanvas from "./components/Canvas/drone";
 
 const HomePage = () => {
   const [islogin, setisLogin] = useState(0);
@@ -84,6 +85,7 @@ const HomePage = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/techspardha" element={<TechSpardha />} />
           <Route path="/admin" element={<Admin user={user}/>}/>
+          {/* <Route path="/hover" element={<DroneCanvas user={user}/>}/> */}
           {/* <Route path='/logout' element={<Drone />}/>
           <Route path='/login' element={<Auth isLogin={islogin} setLogin={checkCookie} />}/> */}
 

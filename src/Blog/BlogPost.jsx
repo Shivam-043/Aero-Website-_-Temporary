@@ -46,12 +46,12 @@ const BlogPost = () => {
 
 
   useEffect(() => {
-    console.log("Shivam");
+    // console.log("Shivam");
     const fetchBlogPost = async () => {
       try {
         console.log("Called");
         const response = await fetch(
-          `http://localhost:3001/api/blogposts/${id}`
+          `http://localhost:3000/api/blogposts/${id}`
         );
         const data = await response.json();
         setBlog(data);
@@ -147,7 +147,7 @@ const BlogPost = () => {
 
               </p>
             </div>
-            <div className="Introduction flex pt-[5vh]">
+            <div className="Introduction flex pt-[5vh]">BlogPost
               <p className="w-1/6 blog-section-text xs1:pt-[5vh]  text-[20px] font-bold">
               Content
               </p>

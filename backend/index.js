@@ -178,6 +178,24 @@ app.post("/registerteam", async(req,res)=>{
   }
 });
 
+const getAllTeams = async (req, res) => {
+  try {
+    // Use the `find` method to get all teams from the database
+    const teams = await Team.find();
+
+    // Check if there are any teams
+    if (teams.length === 0) {
+      return res.status(404).json({ message: "No teams found." });
+    }
+
+    // Send the list of teams as a JSON response
+    res.json(teams);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+app.get("/getallteams", getAllTeams);
 // Start the server
 const port = 3000;
 app.listen(port, async() => {
