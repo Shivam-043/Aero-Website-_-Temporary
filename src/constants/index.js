@@ -24,20 +24,24 @@ export const navLinks = [
     title: "Home",
   },
   {
-    id: "blogs",
-    title: "Blogs",
-  },
-  {
-    id: "events",
-    title: "Events",
-  },
-  {
     id: "aboutus",
     title: "AboutUs",
   },
+  // {
+  //   id: "blogs",
+  //   title: "Blogs",
+  // },
+  // {
+  //   id: "events",
+  //   title: "Events",
+  // },
   {
     id: "techspardha",
     title: "TechSpardha",
+  },
+  {
+    id: "team",
+    title: "Teams",
   },
   {
     id: "authenticate",
@@ -50,21 +54,25 @@ export const navLinksAdmin = [
     title: "Home",
   },
   {
-    id: "blogs",
-    title: "Blogs",
-  },
-  {
-    id: "events",
-    title: "Events",
-  },
-  {
     id: "aboutus",
     title: "AboutUs",
   },
+  // {
+  //   id: "blogs",
+  //   title: "Blogs",
+  // },
   {
     id: "techspardha",
     title: "TechSpardha",
   },
+  {
+    id: "team",
+    title: "Teams",
+  },
+  // {
+  //   id: "events",
+  //   title: "Events",
+  // },
   {
     id: "authenticate",
     title: "Login",
@@ -98,7 +106,8 @@ export const events = [
     id: "event-1",
     title: "Drone BootCamp",
     Date: " 20th - 26th April 2023",
-    content: "A week long BootCamp on 'Drone Technologies and its Applications' was smoothly conducted under the 'Capacity Building for Human Resourcees Development in Drones and Related technologies' project by MeitY (Ministry of Electronics and Information Technologies). \n Sessions on Flight Dynamics , controller board with hands-on experience in drone building are key highlights . \n Guest Lectures on Digital Image Processing and Survey was also Delivered by Dr. Mahesh Pal , Proff. Dept of Civil Engineering ",
+    content:
+      "A week long BootCamp on 'Drone Technologies and its Applications' was smoothly conducted under the 'Capacity Building for Human Resourcees Development in Drones and Related technologies' project by MeitY (Ministry of Electronics and Information Technologies). \n Sessions on Flight Dynamics , controller board with hands-on experience in drone building are key highlights . \n Guest Lectures on Digital Image Processing and Survey was also Delivered by Dr. Mahesh Pal , Proff. Dept of Civil Engineering ",
   },
   {
     id: "event-2",
@@ -117,7 +126,7 @@ export const events = [
 export const types = [
   {
     id: "RC Plane",
-    initialName: "Thrilling airborne ", 
+    initialName: "Thrilling airborne ",
     lastName: "maneuvers unleashed",
     logo: rcPlane,
     content:
@@ -255,15 +264,11 @@ export const footerLinks = [
         link: "#",
       },
       {
+        name: "RC Drone",
+        link: "#",
+      },
+      {
         name: "RC HoverCraft",
-        link: "#",
-      },
-      {
-        name: "Create",
-        link: "#",
-      },
-      {
-        name: "Explore",
         link: "#",
       },
       {
@@ -283,18 +288,18 @@ export const footerLinks = [
         name: "Partners",
         link: "partners",
       },
-      {
-        name: "Suggestions",
-        link: "#",
-      },
+      // {
+      //   name: "Suggestions",
+      //   link: "#",
+      // },
       {
         name: "Blog",
         link: "#",
       },
-      {
-        name: "Newsletters",
-        link: "#",
-      },
+      // {
+      //   name: "Newsletters",
+      //   link: "#",
+      // },
     ],
   },
   {
@@ -384,57 +389,57 @@ export const team = [
       {
         name: "Atul Bisht",
         designation: "President",
-        url: "https://drive.google.com/uc?export=view&id=1XTa5CfZYvwdQvCn3Nq8kv5G5mPIMqp5m"
+        url: "https://drive.google.com/uc?export=view&id=1XTa5CfZYvwdQvCn3Nq8kv5G5mPIMqp5m",
       },
       {
         name: "Himanshu Dudi",
         designation: "Vice President",
-        url: "https://drive.google.com/uc?export=view&id=1isboSZYoD0pEq8XiIoagFkubUdpJyk3X"
+        url: "https://drive.google.com/uc?export=view&id=1isboSZYoD0pEq8XiIoagFkubUdpJyk3X",
       },
       {
         name: "Tanuj Sangwan",
         designation: "Secretary",
-        url: "https://drive.google.com/uc?export=view&id=10JhPRRTfOdC2_2E5l0vetkpPDrlMf-z3"
+        url: "https://drive.google.com/uc?export=view&id=10JhPRRTfOdC2_2E5l0vetkpPDrlMf-z3",
       },
       {
         name: "Khushi",
         designation: "Additional Secretary",
-        url: "https://drive.google.com/uc?export=view&id=1HRRqSaQKTPZlvHSwV8U_QqFCBO56jf5n"
+        url: "https://drive.google.com/uc?export=view&id=1HRRqSaQKTPZlvHSwV8U_QqFCBO56jf5n",
       },
       {
         name: "Sharvani",
         designation: "Joint Secretary",
-        url: "https://drive.google.com/uc?export=view&id=1XFNleU1LGOhtnoYqR4K1xreyKjF2WZWq"
+        url: "https://drive.google.com/uc?export=view&id=1XFNleU1LGOhtnoYqR4K1xreyKjF2WZWq",
       },
       {
         name: "Priyanshu Gaur",
         designation: "Member",
-        url: "https://drive.google.com/uc?export=view&id=1oq1DAJOEGK72FKJCkvV0Mcy_G4RWHMS_"
+        url: "https://drive.google.com/uc?export=view&id=1oq1DAJOEGK72FKJCkvV0Mcy_G4RWHMS_",
       },
       {
         name: "Bhupeksh",
         designation: "Member",
-        url: "https://drive.google.com/uc?export=view&id=1aQvKTal5wUaFyeCSUci0DotP8awmS5gn"
+        url: "https://drive.google.com/uc?export=view&id=1aQvKTal5wUaFyeCSUci0DotP8awmS5gn",
       },
       {
         name: "Rohit",
         designation: "Member",
-        url: "https://drive.google.com/uc?export=view&id=1DuepO_LJIVPOKikyqN7wccBz7ug2znvu"
+        url: "https://drive.google.com/uc?export=view&id=1DuepO_LJIVPOKikyqN7wccBz7ug2znvu",
       },
       {
         name: "Rupesh",
         designation: "Member",
-        url: "https://drive.google.com/uc?export=view&id=13YH1eB9Qk8fhRs-5jThnv7SNtSbsOUXh"
+        url: "https://drive.google.com/uc?export=view&id=13YH1eB9Qk8fhRs-5jThnv7SNtSbsOUXh",
       },
       {
         name: "Shubham Kaushik",
         designation: "Member",
-        url: "https://drive.google.com/uc?export=view&id=1bQWWIhgjWRh1KNH6iF8S6NWsvGh1bZP1"
+        url: "https://drive.google.com/uc?export=view&id=1bQWWIhgjWRh1KNH6iF8S6NWsvGh1bZP1",
       },
       {
         name: "Vinay Saini",
         designation: "Member",
-        url: "https://drive.google.com/uc?export=view&id=1ez2-_If4cNv_OgmOHFoJJiwwE_fbNLdI"
+        url: "https://drive.google.com/uc?export=view&id=1ez2-_If4cNv_OgmOHFoJJiwwE_fbNLdI",
       },
     ],
   },
@@ -444,77 +449,77 @@ export const team = [
       {
         name: "Aarti Mor",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1xQC3qUxec9x3e31rguaaU63bs6FxiNZg",
+        url: "https://drive.google.com/uc?export=view&id=1xQC3qUxec9x3e31rguaaU63bs6FxiNZg",
       },
       {
         name: "Aryan",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1zztyJUDX7HPiEpA6SQjldbEmwGCznwfb",
+        url: "https://drive.google.com/uc?export=view&id=1zztyJUDX7HPiEpA6SQjldbEmwGCznwfb",
       },
       {
         name: "Abhimanyu Mittal",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1f2DQMZMViuTHpUdzMz9ulCgCLgwii3Sa",
+        url: "https://drive.google.com/uc?export=view&id=1f2DQMZMViuTHpUdzMz9ulCgCLgwii3Sa",
       },
       {
         name: "Devesh",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1QdXilh6i0Eh9VKHyz_R_Xu5BfgpQgweu",
+        url: "https://drive.google.com/uc?export=view&id=1QdXilh6i0Eh9VKHyz_R_Xu5BfgpQgweu",
       },
       {
         name: "Jyotiraditya Singh",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1H98C2hH1acR0KZ_7prrQQr3u878UBA8z",
+        url: "https://drive.google.com/uc?export=view&id=1H98C2hH1acR0KZ_7prrQQr3u878UBA8z",
       },
       {
         name: "Leena Dhankhar",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1bEAePhatx7hFEOm3Sya4wiAPB856cf5t",
+        url: "https://drive.google.com/uc?export=view&id=1bEAePhatx7hFEOm3Sya4wiAPB856cf5t",
       },
       {
         name: "Neeraj",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1bifK6XXCagTxYXyuAxYOEHTEiAZKT6Qi",
+        url: "https://drive.google.com/uc?export=view&id=1bifK6XXCagTxYXyuAxYOEHTEiAZKT6Qi",
       },
       {
         name: "Prayatna Kishan",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1aYmFH8wbtdaVGV3ysqHm3QEFXsfC2z34",
+        url: "https://drive.google.com/uc?export=view&id=1aYmFH8wbtdaVGV3ysqHm3QEFXsfC2z34",
       },
       {
         name: "Ram",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1sX6lq8gTaljZrQlF-fDRg5K7V4Aoh79U",
+        url: "https://drive.google.com/uc?export=view&id=1sX6lq8gTaljZrQlF-fDRg5K7V4Aoh79U",
       },
       {
         name: "Rohit Joshi",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1t3-b9aZVlaoMWYOPwlDFfKGat4CjRWAF",
+        url: "https://drive.google.com/uc?export=view&id=1t3-b9aZVlaoMWYOPwlDFfKGat4CjRWAF",
       },
       {
         name: "Sachin",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1hkuB33IV9_yHaE05dTZ9yDcg7dTr-Fxu",
+        url: "https://drive.google.com/uc?export=view&id=1hkuB33IV9_yHaE05dTZ9yDcg7dTr-Fxu",
       },
       {
         name: "Simran Sheoran",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=10Y7yNkm2LepoVi4bFTvbUDWRsjCxTrgi",
+        url: "https://drive.google.com/uc?export=view&id=10Y7yNkm2LepoVi4bFTvbUDWRsjCxTrgi",
       },
       {
         name: "Sugam Tripathi",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1VQURyebx3Fhh7rwoK2aR-pS7_H0WOz0U",
+        url: "https://drive.google.com/uc?export=view&id=1VQURyebx3Fhh7rwoK2aR-pS7_H0WOz0U",
       },
       {
         name: "Varshith Reddy",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1pLVpTd_HEk3FEvQ7WGQG7AtH0pLqM0yX",
+        url: "https://drive.google.com/uc?export=view&id=1pLVpTd_HEk3FEvQ7WGQG7AtH0pLqM0yX",
       },
       {
         name: "Ved",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1N_uaLH8LDzbDeQURO7WmrpGdhcAKOwFl",
+        url: "https://drive.google.com/uc?export=view&id=1N_uaLH8LDzbDeQURO7WmrpGdhcAKOwFl",
       },
     ],
   },
@@ -524,20 +529,18 @@ export const team = [
       {
         name: "Shivam Krishan Varshney",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1XcptlOsciTsjo2ekGjTEtD_mdSrqnEbH",
+        url: "https://drive.google.com/uc?export=view&id=1XcptlOsciTsjo2ekGjTEtD_mdSrqnEbH",
       },
       {
         name: "Govind Ji",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=14cM9iRXHf4gQVgYlrMeFgZruheLu2nGG",
+        url: "https://drive.google.com/uc?export=view&id=14cM9iRXHf4gQVgYlrMeFgZruheLu2nGG",
       },
       {
         name: "Ayush Singh",
         designation: "Member",
-        url : "https://drive.google.com/uc?export=view&id=1JNa84_uHEtEgA77AH7XoNnrW8aN3x996",
+        url: "https://drive.google.com/uc?export=view&id=1JNa84_uHEtEgA77AH7XoNnrW8aN3x996",
       },
     ],
   },
 ];
-
-

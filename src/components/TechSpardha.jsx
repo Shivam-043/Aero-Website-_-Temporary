@@ -19,6 +19,7 @@ const TechSpardha = () => {
         setEvents(events);
         console.log(events)
     }
+    
     return (
         <div>
             <div className={`bg-primary w-full flex flex-row place-content-evenly`}>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 import { close, aeroLogo, menu } from "../assets";
-import { navLinks,navLinksAdmin } from "../constants";
+import { navLinks, navLinksAdmin } from "../constants";
 import { Link } from "react-router-dom";
 const Navbar = (props) => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
-  console.log("isadmin"+props.isadmin);
+  console.log("isadmin" + props.isadmin);
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
@@ -20,45 +20,37 @@ const Navbar = (props) => {
       </h3>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {(!props.isadmin)?navLinks.map((nav, index) => (
-          <Link to={`/${nav.id}`}>
-            <li
-              key={nav.id}
-              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === nav.title ? "text-white" : "text-dimWhite"
-              } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-              onClick={() => {
-                setActive(nav.title);
-              }}
-              
-
-            >
-              {nav.title}
-            </li>
-          </Link>
-        )):
-        navLinksAdmin.map((nav, index) => (
-          <Link to={`/${nav.id}`}>
-            <li
-              key={nav.id}
-              className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
-                active === nav.title ? "text-white" : "text-dimWhite"
-              } ${index === navLinksAdmin.length - 1 ? "mr-0" : "mr-10"}`}
-              onClick={() => {
-                setActive(nav.title);
-              }}
-              
-
-            >
-              {nav.title}
-            </li>
-          </Link>
-        ))
-      }
-
-        
-
-        
+        {!props.isadmin
+          ? navLinks.map((nav, index) => (
+              <Link to={`/${nav.id}`}>
+                <li
+                  key={nav.id}
+                  className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+                    active === nav.title ? "text-white" : "text-dimWhite"
+                  } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+                  onClick={() => {
+                    setActive(nav.title);
+                  }}
+                >
+                  {nav.title}
+                </li>
+              </Link>
+            ))
+          : navLinksAdmin.map((nav, index) => (
+              <Link to={`/${nav.id}`}>
+                <li
+                  key={nav.id}
+                  className={`navvalues font-poppins font-normal cursor-pointer text-[25px]  ${
+                    active === nav.title ? "text-white" : "text-dimWhite"
+                  } ${index === navLinksAdmin.length - 1 ? "mr-0" : "mr-10"}`}
+                  onClick={() => {
+                    setActive(nav.title);
+                  }}
+                >
+                  {nav.title}
+                </li>
+              </Link>
+            ))}
       </ul>
 
       <div className="sm:hidden flex flex-1 justify-end items-center">

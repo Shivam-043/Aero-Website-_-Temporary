@@ -70,7 +70,11 @@ const HomePage = () => {
       <div className="bg-primary w-full overflow-hidden">
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
-            <Navbar isLogin={islogin} isadmin={isadmin} setisAdmin={setisAdmin}/>
+            <Navbar
+              isLogin={islogin}
+              isadmin={!isadmin}
+              setisAdmin={setisAdmin}
+            />
           </div>
         </div>
 
