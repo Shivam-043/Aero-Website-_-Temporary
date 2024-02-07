@@ -44,7 +44,9 @@ header {
   font-weight: 600;
   color: rgb(47, 141, 70);
 }
- 
+
+
+
 .icn {
   height: 30px;
 }
@@ -519,3 +521,4 @@ background: var(--black-gradient);
       width: 180px;
     }
   }
+

@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import axios from "axios";
 import server from "./apple";
+import useUser from "../context/userContext";
 
 // const Auth = ({handleState}) => {
 const Auth = (props) => {
   const navigate = useNavigate();
+  const {user,setUser}= useUser();
 
   // handleState();
   function ValidateName(inputText, id) {
@@ -83,7 +85,8 @@ const Auth = (props) => {
               `; expires=` +
               date.toGMTString();
             alert("Account created successfully");
-            props.setisLogin();
+            // props.setisLogin();
+            setUser(userInfo);
             navigate("/techspardha");
           } else {
             alert("User already exist ");
@@ -149,7 +152,8 @@ const Auth = (props) => {
               JSON.stringify(userInfo) +
               `; expires=` +
               date.toGMTString();
-            props.setLogin();
+            // props.setLogin();
+            setUser(userInfo);
             navigate("/techspardha",{replace:true});
             // handleState();
             // alert("Login Successfully");

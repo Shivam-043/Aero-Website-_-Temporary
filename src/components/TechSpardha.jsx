@@ -8,14 +8,21 @@ import TechspardhaCarousel from "./TechspardhaCorousel";
 import Footer from "./Footer";
 import Faqs from "./faqs";
 import Popup from "./Techspardha/PopUp";
+import useUser from "../context/userContext";
 // import { Carousel } from "@material-tailwind/react";
 
 const TechSpardha = () => {
   const [events, setEvents] = useState(null);
-
+  const {user}=useUser();
   const handleState = (events) => {
-    setEvents(events);
-    console.log(events);
+    // setEvents(events);
+    if(user.id){
+      console.log(events);
+      window.location.href=`/register/${events.id}`;
+    }
+    else{
+      window.location.href='login';
+    }
   };
   return (
     <div>
@@ -67,7 +74,7 @@ const TechSpardha = () => {
       <div>
         <Faqs />
       </div>
-      <Popup {...events} />
+      {/* <Popup {...events} /> */}
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Footer />

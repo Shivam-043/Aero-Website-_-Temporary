@@ -104,6 +104,7 @@ export default class Signup extends Component {
 class Team {
   constructor() {
     this.team_name = "";
+    this.event_name="";
     this.team_leader_name = "";
     this.team_mob = "";
     this.team_email = "";

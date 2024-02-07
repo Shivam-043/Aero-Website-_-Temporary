@@ -96,7 +96,7 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
   }
 
   return (
-    <div>
+    <>
       <h1 className="text-white justify-center text-2xl poppins m-2px p-2px">
         Register Team:
       </h1>
@@ -176,12 +176,13 @@ const TeamSignup = ({ nextStep, handleChange, values }) => {
         </label>
       </div>
 
-      <div>
-        <div className="absolute right-10 bottom-10">
+      <div className={`w-auto flex items-end translate-y-24 flex-col px-8`}>
+        <div className="right-10 bottom-10">
           <Button title={"Next"} py="py-3" px="px-5" onClick={Continue} />
         </div>
       </div>
-    </div>
+      
+    </>
   );
 };
 

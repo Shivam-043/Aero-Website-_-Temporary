@@ -199,11 +199,11 @@ const member = ({ memberNumber, prevStep, nextStep, handleChange, values }) => {
         </label>
       </div>
 
-      <div>
-        <div className="absolute left-10 bottom-10">
+      <div className={`w-auto flex items-end translate-y-24  justify-between px-8 `}>
+        <div className=" left-10 bottom-10">
           <Button title={"Prev"} py="py-3" px="px-5" onClick={Previous} />
         </div>
-        <div className="absolute right-10 bottom-10">
+        <div className=" right-10 bottom-10">
           <Button
             title={memberNumber < values.team.team_size ? "Next" : "submit"}
             py="py-3"
