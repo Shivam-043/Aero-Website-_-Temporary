@@ -5,6 +5,7 @@ export const UserContext= createContext({
     setUser:()=>{}
 });
 
+console.log("hello");
 export const UserProvider = UserContext.Provider;
 
 export default function useUser (){
