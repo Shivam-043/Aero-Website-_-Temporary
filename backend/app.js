@@ -16,4 +16,10 @@ app.use(
     })
 );
 
+// import routes
+const userRouter= require( './routes/user.routes.js' );
+
+// routes declaration
+app.use("/users",userRouter);
+
 module.exports = { app };
