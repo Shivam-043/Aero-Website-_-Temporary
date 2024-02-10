@@ -1,9 +1,10 @@
+// index.js
 const express = require("express");
 const moment = require("moment/moment");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const schema = require("./schema");
+const { User, BlogPost, Team, Counter } = require("./schema");
 // Create an Express app
 const app = express();
 app.use(bodyParser.json());
@@ -15,9 +16,6 @@ app.use(
     allowedHeaders: "*",
   })
 );
-const User = schema.User;
-const BlogPost = schema.BlogPost;
-const Team= schema.Team;
 
 var db = mongoose.connection;
 
@@ -86,33 +84,41 @@ const seedData = async () => {
 };
 
 app.post("/signup", async (req, res) => {
-  // const User = mongoose.model("User");
-  // console.log(req.body);
-  const user = await User.findOne({ email: req.body.email });
+  try {
+    const user = await User.findOne({ email: req.body.email });
 
-  if (user) {
-    // The user exists
-    // console.log("userExist");
-    res.send("userExists");
-  } else {
-    const newuser = new User(req.body);
-    await newuser
-      .save()
-      .then(() => {
-        // console.log("success");
-        res.send("sucess");
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(102).send(new Error(err));
+    if (user) {
+      res.status(409).send({ error: true, message: "User already exist" });
+    } else {
+      // Get the current counter value and increment it
+      const counter = await Counter.findOneAndUpdate(
+        { _id: "userIdCounter" },
+        { $inc: { sequence_value: 1 } },
+        { new: true, upsert: true }
+      );
+
+      // Create a new user without explicitly setting _id
+      const newUser = new User({
+        ...req.body,
       });
-    // The user does not exist
+
+      // Set the _id field after saving the user
+      newUser.userId = counter.sequence_value;
+
+      // Save the user again with the correct _id value
+      await newUser.save();
+
+      res.status(201).send({error:false,message:"User created successfully"});
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({error:true,message:"Internal Server Error"});
   }
 });
 
 
 
-app.post("/teamFormDetails", async(req,res)=>{
+app.post("/teamFormDetails", async (req, res) => {
   // const users=team.
   // fetching whole schema team from Mongodb
   try {
@@ -132,48 +138,53 @@ app.post("/login", async (req, res) => {
     const user = user1;
 
     if (user) {
-      // The user exists
-      console.log(user.role);
+      // The user exist
       if (user.password == req.body.password) {
-        // console.log("userExist");
-        if(user.role=='admin'){
-          console.log("admin");
-        res.send({ cat: "sucess", name: user.name, email: user.email ,role:user.role});
-        }
-        else{
-          res.send({ cat: "sucess", name: user.name, email: user.email });
-        }
+        
+          res.send({error:false, message: "User data served", name: user.name, email: user.email ,role: user.role ,userId: user.userId});
       } else {
-        res.send({cat:"invalidpass"});
+        res.send({error:true, message: "invalidpass" });
       }
     } else {
       // The user does not exist
       // console.log("user not exist");
-      res.send({cat:"notexist"});
+      res.send({ error:true,message: "notexist" });
     }
   } catch (err) {
-    console.log(err);
-    res.status(102).send(new Error(err));
+    console.log("Error in login : ", err);
+    return res.status(422).json({ error: true, message: "Internal server error" ,err});
+    
   }
 });
 
-app.post("/registerteam", async(req,res)=>{
-  try{
-    const team=new Team(req.body);
-    // console.log(req.body);
-    // console.log(team);
-    await team.save()
-    .then(() => {
-      res.send("sucess");
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(102).send(new Error(err));
-    });
-    
+app.post("/registerteam", async (req, res) => {
+  try {
+    const team = await Team.findOne({ name: req.body.name });
 
-  }catch(err){
-    console.log(err);
+    if (team) {
+      res.status(409).send("Team name already exists");
+    } else {
+      const counter = await Counter.findOneAndUpdate(
+        { _id: "teamIdCounter" },
+        { $inc: { sequence_value: 1 } },
+        { new: true, upsert: true }
+      );
+      const newTeam = new Team({...req.body});
+      newTeam.teamId= counter.sequence_value;
+      // console.log(req.body);
+      // console.log(team);
+      await newTeam.save()
+        .then(() => {
+          res.send("sucess");
+        })
+        .catch((err) => {
+          console.log("Error creating team in database",err);
+          res.status(102).send(new Error(err));
+        });
+    }
+
+  } catch (err) {
+    console.log("Error in  registering a new team ", err);
     res.status(102).send(new Error(err));
   }
 });
@@ -198,7 +209,7 @@ const getAllTeams = async (req, res) => {
 app.get("/getallteams", getAllTeams);
 // Start the server
 const port = 3000;
-app.listen(port, async() => {
+app.listen(port, async () => {
   // console.log(`Server started on port ${port}`);
   // Connect to MongoDB
   // mongoose.connect('mongodb+srv://aeromodelling:aeromodelling1234@cluster0.ozskajy.mongodb.net/', {
@@ -211,13 +222,12 @@ app.listen(port, async() => {
       }
     ).then(() => {
       console.log("Mongoogse Connected")
-      
     })
     .then(() => {
       console.log("Server Connected");
       // seedData();
     })
     .catch((e) => {
-      // console.log(e);
+      console.log("Error connecting to Mongo DB ", e);
     });
 });

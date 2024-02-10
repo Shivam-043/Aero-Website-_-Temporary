@@ -13,7 +13,7 @@ const Auth = (props) => {
   const [gender, setGender] = useState("male");
 
   const handleGenderChange = (gen) => {
-    console.log(gen);
+    // console.log(gen);
     setGender(gen);
   };
 
@@ -82,23 +82,24 @@ const Auth = (props) => {
       name: document.getElementById("signName").value,
       email: document.getElementById("signEmail").value,
       password: document.getElementById("signPass").value,
-      mobNum: document.getElementById("Signmob").value,
+      mobile: document.getElementById("Signmob").value,
       gender: gender,
     };
     if (
       ValidateName(data.name, "signName") &&
       ValidateEmail(data.email, "signEmail") &&
       validatePassword(data.password, "signPass") &&
-      validateMobNum(data.mobNum, "Signmob") 
+      validateMobNum(data.mobile, "Signmob") 
     ) {
       let Server2 = server + "/signup";
       axios
         .post(Server2, data)
         .then((res) => {
           console.log(res.data);
-          if (res.data == "sucess") {
+          if (!res.error) {
             var userInfo = {
               id: data.email,
+              userId: data.userId && "",
               name: data.name,
             };
             var date = new Date();
@@ -117,7 +118,7 @@ const Auth = (props) => {
           }
         })
         .catch((err) => {
-          alert(`Error creating account`);
+          alert(`Error connecting to server`);
           console.log(JSON.parse(res).message);
         });
     }
@@ -148,19 +149,16 @@ const Auth = (props) => {
       ValidateEmail(data.email, "logEmail") &&
       validatePassword(data.password, "logPass")
     ) {
-      console.log(data);
-      //   console.log(server);
       let Server2 = server + "/login";
       axios
         .post(Server2, data)
         .then((res) => {
           console.log(res.data);
-          if (res.data.cat == "sucess") {
+          if (!res.data.error) {
             if (res.data.role) {
-              console.log("admin");
               var userInfo = {
                 id: res.data.email,
-                name: res.data.name,
+                name: res.data.name, 
                 role: res.data.role,
               };
             } else {
@@ -181,7 +179,7 @@ const Auth = (props) => {
             navigate("/techspardha", { replace: true });
             // handleState();
             // alert("Login Successfully");
-          } else if (res.data.cat == "invalidpass") {
+          } else if (res.data.message == "invalidpass") {
             alert("Wrong Password ");
           } else {
             alert("User does not exist");
