@@ -1,9 +1,10 @@
+// index.js
 const express = require("express");
 const moment = require("moment/moment");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const schema = require("./schema");
+const { User, BlogPost, Team, Counter } = require("./schema");
 // Create an Express app
 const app = express();
 app.use(bodyParser.json());
@@ -15,9 +16,6 @@ app.use(
     allowedHeaders: "*",
   })
 );
-const User = schema.User;
-const BlogPost = schema.BlogPost;
-const Team= schema.Team;
 
 var db = mongoose.connection;
 
@@ -86,27 +84,38 @@ const seedData = async () => {
 };
 
 app.post("/signup", async (req, res) => {
-  // const User = mongoose.model("User");
-  // console.log(req.body);
-  const user = await User.findOne({ email: req.body.email });
+  try {
+    const user = await User.findOne({ email: req.body.email });
 
-  if (user) {
-    // The user exists
-    // console.log("userExist");
-    res.send("userExists");
-  } else {
-    const newuser = new User(req.body);
-    await newuser
-      .save()
-      .then(() => {
-        // console.log("success");
-        res.send("sucess");
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(102).send(new Error(err));
+    if (user) {
+      res.status(409).send("User already exists");
+    } else {
+      // Get the current counter value and increment it
+      const counter = await Counter.findOneAndUpdate(
+        { _id: "userIdCounter" },
+        { $inc: { sequence_value: 1 } },
+        { new: true, upsert: true }
+      );
+
+      // Create a new user without explicitly setting _id
+      const newUser = new User({
+        ...req.body,
       });
-    // The user does not exist
+
+      // Save the new user
+      await newUser.save();
+
+      // Set the _id field after saving the user
+      newUser.userId = counter.sequence_value;
+
+      // Save the user again with the correct _id value
+      await newUser.save();
+
+      res.status(201).send("User created successfully");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
   }
 });
 

@@ -1,14 +1,10 @@
+// schema.js
 const { MongoUnexpectedServerResponseError } = require("mongodb");
 const mongoose = require("mongoose");
+const User = require("./models/user.models");
+const Counter = require("./models/counter.models");
 
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-  role:String,
-});
 
-const User = mongoose.model("User", UserSchema);
 // Define a BlogPost schema
 const BlogPostSchema = new mongoose.Schema({
   image: String,
@@ -32,4 +28,4 @@ const teamSchema = new mongoose.Schema({
 
 const Team = mongoose.model("Team", teamSchema);
 
-module.exports = { User, BlogPost, Team };
+module.exports = { User, BlogPost, Team, Counter };
