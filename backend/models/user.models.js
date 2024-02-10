@@ -28,6 +28,24 @@ const userSchema = new mongoose.Schema({
         enum: ["user", "admin"],
         default: "user"
     },
+    gender:{
+        type: String,
+        enum: ['male', 'female','none'],
+        default :"male",
+    },
+    mobile :{
+        type :String,
+        trim: true,
+    },
+    college_name:{
+        type: String,
+        trim: true,
+    },
+    address:{
+        country: String,
+        state:String,
+        city:String,
+    },
 }, { timestamps: true });
 
  const User = mongoose.model("User", userSchema);
