@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import axios from "axios";
 import server from "./apple";
 import useUser from "../context/userContext";
-
+import maleimg from "./images/male.png";
+import femaleimg from "./images/female.png";
 // const Auth = ({handleState}) => {
 const Auth = (props) => {
   const navigate = useNavigate();
-  const {user,setUser}= useUser();
+  const { user, setUser } = useUser();
+  const [gender, setGender] = useState("male");
+
+  const handleGenderChange = (gen) => {
+    console.log(gen);
+    setGender(gen);
+  };
 
   // handleState();
   function ValidateName(inputText, id) {
@@ -55,17 +62,34 @@ const Auth = (props) => {
       return false;
     }
   }
+  function validateMobNum(inputText, id) {
+    let doc = document.getElementById(id);
+    if (inputText.length === 10) {
+      doc.style.boxShadow = "none";
+      return true;
+    } else {
+      //   alert("password should be more than 6 characters"); //The pop up alert for an invalid email address
+      doc.focus();
+      doc.style.boxShadow = "0 0 5px red";
+      return false;
+      // return false;
+    }
+  }
+
   async function signup() {
     // Get input values from form fields and store them as variables
     let data = {
       name: document.getElementById("signName").value,
       email: document.getElementById("signEmail").value,
       password: document.getElementById("signPass").value,
+      mobNum: document.getElementById("Signmob").value,
+      gender: gender,
     };
     if (
       ValidateName(data.name, "signName") &&
       ValidateEmail(data.email, "signEmail") &&
-      validatePassword(data.password, "signPass")
+      validatePassword(data.password, "signPass") &&
+      validateMobNum(data.mobNum, "Signmob") 
     ) {
       let Server2 = server + "/signup";
       axios
@@ -154,7 +178,7 @@ const Auth = (props) => {
               date.toGMTString();
             // props.setLogin();
             setUser(userInfo);
-            navigate("/techspardha",{replace:true});
+            navigate("/techspardha", { replace: true });
             // handleState();
             // alert("Login Successfully");
           } else if (res.data.cat == "invalidpass") {
@@ -263,6 +287,108 @@ const Auth = (props) => {
                               id="signPass"
                               autoComplete="off"
                             />
+                            <i className="input-icon uil uil-lock-alt"></i>
+                          </div>
+
+                          <div className="form-group mt-2">
+                            <input
+                              type="number"
+                              name="mob"
+                              className="form-style"
+                              placeholder="Mobile Number"
+                              id="Signmob"
+                              autoComplete="on"
+                              maxLength={10}
+                            />
+                            <i className="input-icon uil uil-lock-alt"></i>
+                          </div>
+                          <div
+                            className="form-group mt-2"
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-around",
+                            }}
+                          >
+                            <div
+                              type="radio"
+                              name="gender"
+                              className="Gender_style"
+                              value="male"
+                              id="male"
+                              style={
+                                gender == "male"
+                                  ? {
+                                      backgroundColor: "#102770",
+                                      padding: "2%",
+                                      display:"flex"
+                                    }
+                                  : {
+                                      backgroundColor: "#1f2029",
+                                      padding: "2%",
+                                      display:"flex"
+                                    }
+                              }
+                              autoComplete="on"
+                              onClick={() => handleGenderChange("male")}
+                            >
+                               <span>
+                                <img src={maleimg} height={15} width={40}/>
+                              </span>
+                              Male
+                            </div>
+                            <div
+                              type="radio"
+                              name="gender"
+                              className="Gender_style"
+                              value="female"
+                              id="female"
+                              style={
+                                gender == "female"
+                                  ? {
+                                      backgroundColor: "#102770",
+                                      padding: "2%",
+                                      display:"flex"
+                                    }
+                                  : {
+                                      backgroundColor: "#1f2029",
+                                      padding: "2%",
+                                      display:"flex"
+                                    }
+                              }
+                              autoComplete="on"
+                              onClick={() => handleGenderChange("female")}
+                            >
+                              <span>
+                                <img src={femaleimg} height={10} width={25} />
+                              </span>
+                              Female
+                            </div>
+
+                            <div
+                              type="radio"
+                              name="gender"
+                              className="Gender_style"
+                              value="none"
+                              id="none"
+                              style={
+                                gender == "none"
+                                  ? {
+                                      backgroundColor: "#102770",
+                                      padding: "2%",
+                                      display:"flex"
+                                    }
+                                  : {
+                                      backgroundColor: "#1f2029",
+                                      padding: "2%",
+                                      display:"flex"
+                                    }
+                              }
+                              autoComplete="on"
+                              onClick={() => handleGenderChange("none")}
+                            >
+                              Prefer Not to say
+                            </div>
+
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
                           <a href="#" onClick={signup} className="btn mt-4">
