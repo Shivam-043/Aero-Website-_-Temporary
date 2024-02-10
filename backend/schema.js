@@ -16,16 +16,16 @@ const BlogPostSchema = new mongoose.Schema({
 // Define a BlogPost model
 const BlogPost = mongoose.model("BlogPost", BlogPostSchema);
 
-const teamSchema = new mongoose.Schema({
-  team_name: String,
-  team_leader_name: String,
-  team_mob: String,
-  team_email: String,
-  team_size: Number,
-  team_about: String,
-  team_member: Array,
-});
+// const teamSchema = new mongoose.Schema({
+//   team_name: String,
+//   team_leader_name: String,
+//   team_mob: String,
+//   team_email: String,
+//   team_size: Number,
+//   team_about: String,
+//   team_member: Array,
+// });
 
-const Team = mongoose.model("Team", teamSchema);
+// const Team = mongoose.model("Team", teamSchema);
 
 module.exports = { User, BlogPost, Team, Counter };
