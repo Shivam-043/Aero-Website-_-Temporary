@@ -1,13 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
-
-const Logoutcontrol = (props) => {
-  const navigate = useNavigate();
-      logout();
-
-    
-  function logout() {
+   
+  function logoutcontrol() {
     // console.log(isLogin);
     var date = new Date();
     // date.setTime(date.getTime() - 30 * 24 * 60 * 60 * 1000);
@@ -19,7 +11,5 @@ const Logoutcontrol = (props) => {
     props.setisAdmin(false);
     navigate("/login",{replace:true});
   }
-  return <div>Logout control component here.</div>;
-};
 
-export default Logoutcontrol;
+export default logoutcontrol;

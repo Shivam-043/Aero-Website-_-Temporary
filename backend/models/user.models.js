@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const Counter = require("./counter.models");
+const jwt = require("jsonwebtoken");
+
 const userSchema = new mongoose.Schema({
     userId: {
         type: String,
@@ -49,11 +52,22 @@ const userSchema = new mongoose.Schema({
         state: String,
         city: String,
     },
+    refreshToken:{
+        type:String,
+    }
 }, { timestamps: true });
 
 userSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 10);
+    }
+    if (this.isModified("email")) {
+        const counter = await Counter.findOneAndUpdate(
+            { _id: "userIdCounter" },
+            { $inc: { sequence_value: 1 } },
+            { new: true, upsert: true }
+        );
+        this.userId = counter.sequence_value;
     }
     next();
 });

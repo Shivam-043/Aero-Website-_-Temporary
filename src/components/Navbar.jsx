@@ -3,17 +3,19 @@ import { close, aeroLogo, menu } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
 import useUser from "../context/userContext";
+import { axiosApi } from "../utils/fetchApi";
 const Navbar = (props) => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const { user, setUser } = useUser();
 
 
-  function logout() {
+  async function logout() {
     var date = new Date();
     document.cookie = 'user' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'user' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/techspardha;';
-    console.log("Logout Control run");
+    await axiosApi("/api/users/logout").then((res)=>{
+      console.log(res);
+    }).catch((err)=>console.log(err));
     setUser("");
     navigate("/login", { replace: true });
   }
