@@ -26,8 +26,10 @@ app.use((req, res, next) => {
 
 // import routes
 const userRouter = require('./routes/user.routes.js');
+const eventRouter =require('./routes/event.routes.js');
 
 // routes declaration
 app.use("/api/users", userRouter);
+app.use("/api/events", eventRouter);
 
 module.exports = { app };
