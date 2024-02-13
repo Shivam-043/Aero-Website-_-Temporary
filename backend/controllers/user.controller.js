@@ -91,7 +91,7 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
-    await User.findOneAndUpdate(
+    await User.findByIdAndUpdate(
         req.user._id,
         {
             $set: {
@@ -149,4 +149,27 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
 })
 
-module.exports = { registerUser, loginUser, logoutUser, refreshAccessToken };
+const updateDetails = asyncHandler(async (req, res) => {
+    const { address, college_name, name, gender, mobile } = req.body;
+
+    // Check if at least one field is provided for update
+    if (![address, college_name, name, gender, mobile].some(field => field !== undefined && field.trim() !== "")) {
+        throw new ApiError(400, "Please provide at least one detail to update");
+    }
+
+    const updateFields = {};
+
+    const fieldsToUpdate = ['address', 'college_name', 'name', 'gender', 'mobile'];
+
+    for (const field of fieldsToUpdate) {
+        if (req.body[field]?.trim() !== "") {
+            updateFields[field] = req.body[field];
+        }
+    }
+    console.log(updateFields);
+    const user = await User.findByIdAndUpdate(req.user._id, updateFields, { new: true }).select(["-password", "-resetPasswordToken"]);
+
+    res.status(200).json(new ApiResponse(200, user, "User Details Updated Successfully"));
+});
+
+module.exports = { registerUser, loginUser, logoutUser, refreshAccessToken, updateDetails };
