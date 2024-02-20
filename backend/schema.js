@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const User = require("./models/user.models");
 const Counter = require("./models/counter.models");
 const Team = require("./models/team.models");
+const Event = require( "./models/event.models" );
 
 
 // Define a BlogPost schema
@@ -29,4 +30,4 @@ const BlogPost = mongoose.model("BlogPost", BlogPostSchema);
 
 // const Team = mongoose.model("Team", teamSchema);
 
-module.exports = { User, BlogPost, Team, Counter };
+module.exports = { User, BlogPost, Team,Event, Counter };

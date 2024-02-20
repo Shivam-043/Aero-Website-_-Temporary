@@ -6,6 +6,7 @@ import server from "./apple";
 import useUser from "../context/userContext";
 import maleimg from "./images/male.png";
 import femaleimg from "./images/female.png";
+import { axiosApi, fetchApi } from "../utils/fetchApi";
 // const Auth = ({handleState}) => {
 const Auth = (props) => {
   const navigate = useNavigate();
@@ -89,18 +90,20 @@ const Auth = (props) => {
       ValidateName(data.name, "signName") &&
       ValidateEmail(data.email, "signEmail") &&
       validatePassword(data.password, "signPass") &&
-      validateMobNum(data.mobile, "Signmob") 
+      validateMobNum(data.mobile, "Signmob")
     ) {
-      let Server2 = server + "/signup";
-      axios
-        .post(Server2, data)
+      // let Server2 = server + "/signup";
+      let Server2 = server + "/users/register";
+      // axios
+      //   .post(Server2, data)
+      axiosApi("/api/users/register",data)
         .then((res) => {
-          console.log(res.data);
-          if (!res.error) {
+          // console.log(res.data);
+          if (res.success) {
+            const userData = res.data.user;
             var userInfo = {
-              id: data.email,
-              userId: data.userId && "",
-              name: data.name,
+              ...userData,
+              id: userData.email
             };
             var date = new Date();
             date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
@@ -113,12 +116,13 @@ const Auth = (props) => {
             // props.setisLogin();
             setUser(userInfo);
             navigate("/techspardha");
-          } else {
-            alert("User already exist ");
-          }
+          } 
+          // else {
+          //   alert("User already exist ");
+          // }
         })
         .catch((err) => {
-          alert(`Error connecting to server`);
+          // alert(`Error connecting to server`);
           console.log(JSON.parse(res).message);
         });
     }
@@ -149,24 +153,18 @@ const Auth = (props) => {
       ValidateEmail(data.email, "logEmail") &&
       validatePassword(data.password, "logPass")
     ) {
-      let Server2 = server + "/login";
-      axios
-        .post(Server2, data)
+      
+      // fetchApi('/api/users/login',data)
+      axiosApi('/api/users/login',data)
         .then((res) => {
-          console.log(res.data);
-          if (!res.data.error) {
-            if (res.data.role) {
-              var userInfo = {
-                id: res.data.email,
-                name: res.data.name, 
-                role: res.data.role,
-              };
-            } else {
-              var userInfo = {
-                id: res.data.email,
-                name: res.data.name,
-              };
-            }
+          if (res.success) {
+            const userData = res.data.user;
+            console.log(userData);
+            var userInfo = {
+              ...userData,
+              id: userData.email,
+            };
+
             var date = new Date();
             date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
             document.cookie =
@@ -179,14 +177,15 @@ const Auth = (props) => {
             navigate("/techspardha", { replace: true });
             // handleState();
             // alert("Login Successfully");
-          } else if (res.data.message == "invalidpass") {
-            alert("Wrong Password ");
-          } else {
-            alert("User does not exist");
-          }
+          } 
+          // else if (res.data.message == "invalidpass") {
+          //   alert("Wrong Password ");
+          // } else {
+          //   alert("User does not exist");
+          // }
         })
         .catch((err) => {
-          alert(`Error creating account`);
+          // alert(`Error creating account`);
           console.log(err);
         });
     }
@@ -316,21 +315,21 @@ const Auth = (props) => {
                               style={
                                 gender == "male"
                                   ? {
-                                      backgroundColor: "#102770",
-                                      padding: "2%",
-                                      display:"flex"
-                                    }
+                                    backgroundColor: "#102770",
+                                    padding: "2%",
+                                    display: "flex"
+                                  }
                                   : {
-                                      backgroundColor: "#1f2029",
-                                      padding: "2%",
-                                      display:"flex"
-                                    }
+                                    backgroundColor: "#1f2029",
+                                    padding: "2%",
+                                    display: "flex"
+                                  }
                               }
                               autoComplete="on"
                               onClick={() => handleGenderChange("male")}
                             >
-                               <span>
-                                <img src={maleimg} height={15} width={40}/>
+                              <span>
+                                <img src={maleimg} height={15} width={40} />
                               </span>
                               Male
                             </div>
@@ -343,15 +342,15 @@ const Auth = (props) => {
                               style={
                                 gender == "female"
                                   ? {
-                                      backgroundColor: "#102770",
-                                      padding: "2%",
-                                      display:"flex"
-                                    }
+                                    backgroundColor: "#102770",
+                                    padding: "2%",
+                                    display: "flex"
+                                  }
                                   : {
-                                      backgroundColor: "#1f2029",
-                                      padding: "2%",
-                                      display:"flex"
-                                    }
+                                    backgroundColor: "#1f2029",
+                                    padding: "2%",
+                                    display: "flex"
+                                  }
                               }
                               autoComplete="on"
                               onClick={() => handleGenderChange("female")}
@@ -371,15 +370,15 @@ const Auth = (props) => {
                               style={
                                 gender == "none"
                                   ? {
-                                      backgroundColor: "#102770",
-                                      padding: "2%",
-                                      display:"flex"
-                                    }
+                                    backgroundColor: "#102770",
+                                    padding: "2%",
+                                    display: "flex"
+                                  }
                                   : {
-                                      backgroundColor: "#1f2029",
-                                      padding: "2%",
-                                      display:"flex"
-                                    }
+                                    backgroundColor: "#1f2029",
+                                    padding: "2%",
+                                    display: "flex"
+                                  }
                               }
                               autoComplete="on"
                               onClick={() => handleGenderChange("none")}
