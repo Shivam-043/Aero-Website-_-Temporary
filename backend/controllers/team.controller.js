@@ -184,11 +184,54 @@ const acceptJoinRequest = asyncHandler(async (req, res) => {
     res.status(200).json(new ApiResponse(200, null, "Join request accepted successfully"));
 });
 
+const readOne = asyncHandler(async (req, res) => {
+    const { teamId } = req.body;
+
+    // Find the team by teamId
+    const team = await Team.findById(teamId).populate('leader members.user joinRequests.user', '-password -refreshToken -createdAt -updatedAt -role');
+
+    // Check if the team exists
+    if (!team) {
+        throw new ApiError(404, "Team not found");
+    }
+
+    res.status(200).json(new ApiResponse(200, team, "Team details retrieved successfully"));
+});
+
+const readAll = asyncHandler(async (req, res) => {
+    // Extract optional query parameters
+    const { page = 1, pageSize = 10 } = req.body;
+
+    // Validate page and pageSize as positive integers
+    const pageNumber = parseInt(page);
+    const pageSizeNumber = parseInt(pageSize);
+
+    if (isNaN(pageNumber) || isNaN(pageSizeNumber) || pageNumber <= 0 || pageSizeNumber <= 0) {
+        throw new ApiError(400, "Invalid page or pageSize parameter");
+    }
+
+    // Calculate skip value for pagination
+    const skip = (pageNumber - 1) * pageSizeNumber;
+
+    // Fetch teams with pagination
+    const teams = await Team.find()
+        .skip(skip)
+        .limit(pageSizeNumber)
+        .populate('leader members.user joinRequests.user', '-password -refreshToken -createdAt -updatedAt -role');
+
+    // Return the paginated list of teams
+    res.status(200).json(new ApiResponse(200, teams, "Teams retrieved successfully"));
+});
+
+module.exports = readAll;
+
 
 module.exports = {
     createTeam,
     joinTeam,
     verifyMember,
     sendJoinRequest,
-    acceptJoinRequest
+    acceptJoinRequest,
+    readOne,
+    readAll
 };

@@ -17,10 +17,14 @@ export const fetchApi = async (endpoint, data, options = {}) => {
             .then(response => response.json())
             .then(result => {
                 // console.log(result);
+                if (result.statusCode ==401) {
+                    console.log("unauthorised user",result);
+                    window.location.href = "/login"
+                }
                 res(result);
             })
             .catch(error => {
-                console.log('error', error);
+                
                 rej(error);
             });
     });
@@ -30,14 +34,22 @@ export const axiosApi = async (endpoint, data={}, options = {}) => {
     return new Promise((res, rej) => {
         let Server2 = server + endpoint;
         axios.defaults.withCredentials = true;
-        axios.post(Server2, data)
+        axios.post(Server2, data,options)
             .then(result => {
                 // console.log(result.data);
+                if (result.statusCode == 401) {
+                    console.log("unauthorised user", result);
+                    window.location.href = "/login"
+                }
                 res(result.data);
             })
             .catch(error => {
-                console.log('error', error)
+                // console.error('Axios API Error:', error.response);
+                // console.error('Error Message:', error.response?.data?.message);
+                
+                alert(error.response?.data?.message || "An unknown error occurred.");
                 rej(error);
+                
             });
     });
 };
