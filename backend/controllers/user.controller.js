@@ -40,13 +40,23 @@ const registerUser = asyncHandler(async (req, res) => {
         email, name, password, gender, mobile
     });
 
+    const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
+
     const createdUser = await User.findById(user._id).select("-password -refreshToken");
 
     if (!createdUser) {
         throw new ApiError(500, "Server Error: Could not create the user")
     }
-    return res.status(201).json(
-        new ApiResponse(200, createdUser, "User registered successfully!")
+    const options = {
+        // maxAge: 900000,
+        httpOnly: true,
+        secure: true
+    }
+    res.status(200)
+        .cookie('accessToken', accessToken, options)
+        .cookie('refreshToken', refreshToken, options)
+        .json(
+            new ApiResponse(200,{user:createdUser, accessToken, refreshToken,},"User registered successfully!")
     );
 });
 
@@ -72,13 +82,10 @@ const loginUser = asyncHandler(async (req, res) => {
     const loggedUser = await User.findById(user._id).select("-password -refreshToken");
 
     const options = {
-        maxAge: 900000,
+        // maxAge: 900000,
         httpOnly: true,
-        // secure: true,
-        // sameSite:'lax',
-        // secure: process.env.NODE_ENV === 'production'
+        secure: true
     }
-    // res.header('Access-Control-Allow-Origin', 'http://localhost:5173')
     res.status(200)
         .cookie('accessToken', accessToken, options)
         .cookie('refreshToken', refreshToken, options)
@@ -135,7 +142,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: 'none',
-        maxAge: 600000,
+        // maxAge: 600000,
     }
 
     res.status(200)

@@ -10,7 +10,7 @@ const teamSchema = new mongoose.Schema({
         type: String,
         unique: [true, "Team Name already used"],
         required: true,
-        trim: true
+        trim: true,
     },
     about: {
         type: String,
@@ -18,25 +18,30 @@ const teamSchema = new mongoose.Schema({
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     },
     size: {
         min: 1,
         type: Number,
-        default: 1, //default to single member team
-        required: true
+        default: 1,
+        required: true,
     },
     members: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }], //Array of user ids that belong to this team
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        status: { type: String, default: 'pending' }, // 'pending', 'accepted', 'rejected'
+    }],
     leader: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
     },
     event: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Event',
-        required: false
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event',
+        required: false,
     },
+    joinRequests: [{
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    }],
 }, { timestamps: true });
 
 teamSchema.pre('save', async function (next) {
@@ -52,4 +57,5 @@ teamSchema.pre('save', async function (next) {
 });
 
 const Team = mongoose.model("Team", teamSchema);
-module.exports = { Team };
+
+module.exports = Team;

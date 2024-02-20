@@ -94,15 +94,16 @@ const Auth = (props) => {
     ) {
       // let Server2 = server + "/signup";
       let Server2 = server + "/users/register";
-      axios
-        .post(Server2, data)
+      // axios
+      //   .post(Server2, data)
+      axiosApi("/api/users/register",data)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.success) {
+            const userData = res.data.user;
             var userInfo = {
-              id: data.email,
-              userId: data.userId && "",
-              name: data.name,
+              ...userData,
+              id: userData.email
             };
             var date = new Date();
             date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
@@ -115,12 +116,13 @@ const Auth = (props) => {
             // props.setisLogin();
             setUser(userInfo);
             navigate("/techspardha");
-          } else {
-            alert("User already exist ");
-          }
+          } 
+          // else {
+          //   alert("User already exist ");
+          // }
         })
         .catch((err) => {
-          alert(`Error connecting to server`);
+          // alert(`Error connecting to server`);
           console.log(JSON.parse(res).message);
         });
     }
@@ -175,14 +177,15 @@ const Auth = (props) => {
             navigate("/techspardha", { replace: true });
             // handleState();
             // alert("Login Successfully");
-          } else if (res.data.message == "invalidpass") {
-            alert("Wrong Password ");
-          } else {
-            alert("User does not exist");
-          }
+          } 
+          // else if (res.data.message == "invalidpass") {
+          //   alert("Wrong Password ");
+          // } else {
+          //   alert("User does not exist");
+          // }
         })
         .catch((err) => {
-          alert(`Error creating account`);
+          // alert(`Error creating account`);
           console.log(err);
         });
     }
