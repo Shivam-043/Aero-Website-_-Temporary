@@ -114,5 +114,11 @@ const readAllEvents = asyncHandler(async (req, res) => {
     res.status(200).json(new ApiResponse(200, events, "All events retrieved successfully"));
 });
 
+const readAllActiveEvents = asyncHandler(async (req, res) => {
+    // Fetch only active events from the database
+    const activeEvents = await Event.find({ isActive: true });
 
-module.exports = { createEvent, updateEvent, readAllEvents, readOneEvent };
+    res.status(200).json(new ApiResponse(200, activeEvents, "Active events retrieved successfully"));
+});
+
+module.exports = { createEvent, updateEvent, readAllEvents, readOneEvent, readAllActiveEvents };
