@@ -27,6 +27,10 @@ const eventSchema = new Schema({
         type: Number,
         default: 0
     },
+    isActive:{
+        type : Boolean ,
+        default : true
+    },
     mainImageUrl: {
         type: String,
         default: ''
