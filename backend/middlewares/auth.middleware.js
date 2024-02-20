@@ -19,7 +19,7 @@ const verifyJWT = asyncHandler(async (req, res, next) => {
         req.user =user;
         next();
     } catch (err) {
-        throw new ApiError(err.statusCode || 500, err.message || "Something went wrong in validating  JWT");
+        throw new ApiError(err.statusCode || 401, err.message || "Something went wrong in validating  JWT");
     }
 });
 

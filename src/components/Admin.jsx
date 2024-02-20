@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import "../admin.css";
 import server from "../auth/apple";
+import { fetchApi } from "../utils/fetchApi";
 
 const Admin = () => {
   const [isNavOpen, setNavOpen] = useState(false);
@@ -10,12 +11,16 @@ const Admin = () => {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    fetch(server + "/getallteams") // Replace with your backend API endpoint
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setTeams(data);
-        setExpandedRows(Array.from(false.repeat(5)));
+    // fetch(server + "/getallteams") // Replace with your backend API endpoint
+    fetchApi("/api/teams/readAll")
+      // .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        if (res.success) {
+          setTeams(res.data);
+          // setExpandedRows(Array.from(false.repeat(5)));
+
+        }
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -75,35 +80,35 @@ const Admin = () => {
                         <AiFillCaretDown />
                       </span>
 
-                      <h3 className="t-op-nextlvl">{team._id}</h3>
-                      <h3 className="t-op-nextlvl">{team.team_leader_name}</h3>
-                      <h3 className="t-op-nextlvl">{team.team_name}</h3>
-                      <h3 className="t-op-nextlvl">{team.team_mob}</h3>
-                      <h3 className="t-op-nextlvl">{team.team_email}</h3>
+                      <h3 className="t-op-nextlvl">{team.teamId}</h3>
+                      <h3 className="t-op-nextlvl">{team.leader.name}</h3>
+                      <h3 className="t-op-nextlvl">{team.name}</h3>
+                      <h3 className="t-op-nextlvl">{team.leader.mobile}</h3>
+                      <h3 className="t-op-nextlvl">{team.leader.email}</h3>
                       <h3 className="t-op-nextlvl">
-                        {team.team_member[0].member_college}
+                        {team.leader.college_name || ""}
                       </h3>
                       <h3 className="t-op-nextlvl label-tag">verify</h3>
                     </div>
 
                     {expandedRows[index] ? (
                       <div>
-                        {team.team_member.map((member, i) => (
-                          <div className={"item1" } key={member._id}>
+                        {team.members.map((member, i) => (
+                          <div className={"item1"} key={member.user._id}>
                             <h3 className="t-op-nextlvl">
-                              {member.member_name}
+                              {member.user.name}
                             </h3>
                             <h3 className="t-op-nextlvl">
-                              {member.member_role}
+                              {member.user.role}
                             </h3>
                             <h3 className="t-op-nextlvl">
-                              {member.member_mob}
+                              {member.user.mobile}
                             </h3>
                             <h3 className="t-op-nextlvl">
-                              {member.member_email}
+                              {member.user.email}
                             </h3>
                             <h3 className="t-op-nextlvl">
-                              {member.member_college}
+                              {member.user.college_name}
                             </h3>
                             <h3 className="t-op-nextlvl">{member.status}</h3>
                           </div>
